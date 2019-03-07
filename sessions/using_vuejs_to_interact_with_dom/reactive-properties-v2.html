@@ -1,0 +1,42 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <button v-on:click='increase'>Increase</button>
+    <button v-on:click='decrease'>Decrease</button>
+    <button v-on:click='count2++'>Increase2</button>
+    <p>Counter: {{ count1 }} {{ count2 }}</p>
+    <p>Result: {{result}}</p>
+</div>
+
+<script>
+new Vue({
+    el: '#app',
+    data:{
+        count1:0,
+        count2:0
+    },
+    computed:{
+        // by this way this method will be trigged only for events that change the var count1.
+        result(){
+            console.log('method result was called ...');
+            return this.count1 <=5 ? 'the value is smaller than 5 or equals 5' : 'the value is bigger than five';
+        },
+    },
+        methods:{
+            increase(){
+                this.count1++;
+            },
+            decrease(){
+                this.count1--;
+            },
+        //     by this way this method will be trigged for any event in the screen.
+        //     result(){
+        //         console.log('method result was called ...');
+        //         return this.count1 <=5 ? 'the value is smaller than 5 or equals 5' : 'the value is bigger than five';
+        // }
+    }
+});
+
+
+</script>
+
