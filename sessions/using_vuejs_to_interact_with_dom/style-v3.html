@@ -1,0 +1,69 @@
+<script src="https://unpkg.com/vue"></script>
+
+<style>
+
+.boxes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.demo{
+    width:100px;
+    height:100px;
+    background-color: gray;
+}
+
+.c1{
+    background-color:green
+}
+
+.c2{
+    background-color:blue
+}
+
+.c3{
+    background-color:orange
+}
+
+.tst1{
+    border: 1px solid;
+}
+
+.spin{
+    transform: rotate(45deg);
+}
+
+</style>
+
+
+
+    <div id="app">
+            <div class="boxes">
+        <div class="demo" :class='[applyCSS, {spin:applySpin}]' @click='apllyC1 = !apllyC1'></div>
+        <div class="demo"></div>
+        <div class="demo"></div>
+    </div>
+    <input type="text" v-model='applyCSS'>
+    </div>
+
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            apllyC1:false,
+            applyCSS: 'c2',
+            applySpin:true,
+        },computed:{
+            style1(){
+                return{
+                    c1: this.apllyC1,
+                    c2: !this.apllyC1
+                }
+
+            }
+        }
+
+    });
+
+</script>
