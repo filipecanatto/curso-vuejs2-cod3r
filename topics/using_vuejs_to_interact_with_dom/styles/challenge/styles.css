@@ -4,25 +4,6 @@
 	border: 1px solid black;
 }
 
-.example {
-	width: 200px;
-	height: 50px;
-	border: 1px solid black;
-}
-
-.progressBar {
-	width: 208px;
-	height: 25px;
-	border: 1px solid black;
-}
-
-.progressItem {
-	width: 4;
-	height: 25px;
-	background-color: red;
-	float:left;
-}
-
 .destaque {
 	background-color: red;
 	width: 200px !important;
@@ -33,10 +14,27 @@
 	width: 50px !important;
 }
 
-.green {
-	background-color: green
+.perigo{
+	background-color: red;
 }
 
-.solidBorder {
-	border: solid black;
+.quadrado{
+	width: 100px;
+	height: 100px;
 }
+
+.direita{
+	float: right;
+}
+
+.barra-progresso{
+	height: 30px;
+	width: 500px;
+	border: 1px solid black;
+}
+
+.progresso{
+	background-color: red;
+	height: 100%;
+}
+

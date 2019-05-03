@@ -1,55 +1,43 @@
 new Vue({
 	el: '#desafio',
 	data: {
-		// toggle
-		apllyEfect: false,
-		// css classes
-		green: 'green',
-		solidBorder: 'solidBorder',
-		example: 'example',
-		// binds
-		userClassInformedEx3: '',
-		userClassInformedEx4: '',
-		userClassInformedEx5: ''
+		class1: 'destaque',
+		perigo: true,
+		class3: '',
+		class4: '',
+		color5: '',
+		style5: {
+			widht: '100px',
+			height: '100px'
+		},
+		width: '0%'
 	},
 	methods: {
 		iniciarEfeito() {
-			this.apllyEfect = !this.apllyEfect
-			setTimeout(() => {
-				this.iniciarEfeito()
-			}, 2000);
+			setInterval(() => {
+				this.class1 = this.class1 == 'destaque'
+					? 'encolher' : 'destaque'
+			}, 1000)
 
 		},
 		iniciarProgresso() {
-			this.example6(52);
+			console.log('entrei...')
+			let valor = 0;
+			const temporizador = setInterval(()=>{
+				valor += 5;
+				this.width = `${valor}%`
+				console.log(this.width)
+				if (valor == 100) clearInterval(temporizador);
+			},50);
 		},
-		example2() {
-			return [this.green, this.solidBorder, this.example]
-		},
-		example4() {
-			return ['example', this.userClassInformedEx4, { green: true }]
-		},
-		example3() {
-			return ['example', this.userClassInformedEx3]
-		},
-		example5() {
-			return this.userClassInformedEx5
-		},
-		example6(stop) {
-
-			if (stop >= 1) {
-				console.log(stop);
-				var element = document.createElement("div");
-				element.setAttribute('class', 'progressItem');
-				document.getElementById('progressBar').appendChild(element);
-				stop--;
-				setTimeout(() => {
-					this.example6(stop)
-				}, 70);
+		setPerigo(event) {
+			if (event.target.value == 'true') {
+				this.perigo = true;
+			} else if (event.target.value == 'false') {
+				this.perigo = false;
 			}
-
-
 		}
-
 	}
+
+
 })
