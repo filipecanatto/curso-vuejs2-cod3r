@@ -16,11 +16,20 @@ new Vue({
         count2:0
     },
     computed:{
-        // by this way this method will be trigged only for events that change the var count1.
         result(){
             console.log('method result was called ...');
             return this.count1 <=5 ? 'the value is smaller than 5 or equals 5' : 'the value is bigger than five';
         },
+    },
+    // the watch property enables you watch changes and do something as an answer, for example, 
+    // when the city code is filled, you can trigger a query to get the respective streets.
+    watch:{
+        count1(newV, oldV){
+            setTimeout(() => {
+                this.count1 = 0;
+            }, 2000);
+          
+        }
     },
         methods:{
             increase(){
@@ -29,11 +38,6 @@ new Vue({
             decrease(){
                 this.count1--;
             },
-        //     by this way this method will be trigged for any event in the screen.
-        //     result(){
-        //         console.log('method result was called ...');
-        //         return this.count1 <=5 ? 'the value is smaller than 5 or equals 5' : 'the value is bigger than five';
-        // }
     }
 });
 
