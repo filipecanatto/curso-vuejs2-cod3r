@@ -29,9 +29,8 @@
     outra classe usando o valor true/false (crie classes CSS de exemplo). -->
 	<h2>#04</h2>
 	<div>
-		<input type="text">
-		<input type="text">
-		<div :class=""></div>
+		<input type="text" v-model='userClassInformedEx4'>
+		<div :class="example4()"></div>
 	</div>
 
 	<!-- 5) Repita 3) mas utilizando estilos ao invés de classes CSS.
@@ -47,7 +46,8 @@
 	<h2>#06</h2>
 	<div>
 		<button @click="iniciarProgresso">Iniciar</button>
-		<div></div>
+		<div id="progressBar" class="progressBar">
+		</div>
 	</div>
 </div>
 <script src="app.js"></script>

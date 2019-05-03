@@ -21,17 +21,35 @@ new Vue({
 
 		},
 		iniciarProgresso() {
-
+			this.example6(52);
 		},
 		example2() {
 			return [this.green, this.solidBorder, this.example]
 		},
-		example3(){
+		example4() {
+			return ['example', this.userClassInformedEx4, { green: true }]
+		},
+		example3() {
 			return ['example', this.userClassInformedEx3]
 		},
-		example5(){
+		example5() {
 			return this.userClassInformedEx5
 		},
-		
+		example6(stop) {
+
+			if (stop >= 1) {
+				console.log(stop);
+				var element = document.createElement("div");
+				element.setAttribute('class', 'progressItem');
+				document.getElementById('progressBar').appendChild(element);
+				stop--;
+				setTimeout(() => {
+					this.example6(stop)
+				}, 70);
+			}
+
+
+		}
+
 	}
 })

@@ -10,6 +10,19 @@
 	border: 1px solid black;
 }
 
+.progressBar {
+	width: 208px;
+	height: 25px;
+	border: 1px solid black;
+}
+
+.progressItem {
+	width: 4;
+	height: 25px;
+	background-color: red;
+	float:left;
+}
+
 .destaque {
 	background-color: red;
 	width: 200px !important;
