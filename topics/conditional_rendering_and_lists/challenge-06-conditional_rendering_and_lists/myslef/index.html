@@ -1,0 +1,67 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="desafio">
+  <!-- 1) Ligue o botão para alternar a exibição dos dois
+    parágrafos. Use ambos v-if e v-show e inspecione os elementos
+    para ver a diferença -->
+  <h2>#01</h2>
+  <div>
+    <button @Click='toggle = !toggle'>Alternar</button>
+    <p v-if='toggle'>Você quer me ver ...</p>
+    <p v-else>...ou eu</p>
+    <p v-show='toggle'>Você quer me ver ...</p>
+    <p v-show='!toggle'>...ou eu</p>
+  </div>
+
+  <!-- 2) Exiba em uma <ul> um array de elementos da sua escolha.
+    Imprima também o índice de cada elemento. -->
+  <h2>#02</h2>
+  <ul>
+    <li v-for='(element, index) in array'>
+      {{index+1}} - {{ element }}
+    </li>
+  </ul>
+
+  <!-- 3) Imprimir todos os pares de valor-chave do objeto a seguir:
+    {
+			titulo: 'O Senhor dos Anéis',
+			autor: 'J.R.R. Tolkiens',
+			volume: '3'
+		}
+    Imprima também o índice de cada item. -->
+  <h2>#03</h2>
+  <ul>
+    <li v-for='element in arrayLivros'>
+      <div v-for='(value, key, index) in element'>
+        {{key}}:{{value}}
+      </div>
+    </li>
+  </ul>
+
+  <!-- 4) Imprima o seguinte objeto (somente os valores) e
+    também crie um loop aninhado para o array:
+    {
+			id: 10,
+			nome: 'Maria',
+			notas: [7.67, 8.33, 6.98, 9.21]
+		}
+    (dica: use v-for e v-if na resolução) -->
+  <h2>#04</h2>
+  <ul>
+    <li v-for='element in aluno'>
+      <div v-for='(value, key, index) in element'>
+        <span v-if="key != 'notas'"> {{ key}} : {{ value }}</span>
+        <span v-else>
+          {{ key}} :
+          <div v-for='n in value'>
+            <ul>
+              <li>{{ n }}</li>
+            </ul>
+          </div>
+        </span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script src="app.js"></script>
