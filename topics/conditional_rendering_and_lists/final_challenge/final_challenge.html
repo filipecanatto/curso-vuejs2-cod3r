@@ -2,7 +2,7 @@
 <script src="https://unpkg.com/vue"></script>
 
 <div id="app">
-    <div class="d">
+    <div id='battlefield' class="d">
         <div class="d player">
             <h2>Player</h2>
             <div class="life d"></div>
@@ -14,24 +14,30 @@
             <span>100%</span>
         </div>
     </div>
+    <div class="btn-group">
+        <button>Attack</button>
+        <button>Special Attack</button>
+        <button>Heal</button>
+    </div>
+</div>
 
 
-    <style>
-        .d {
-            border-style: solid;
-            border-width: thin;
-        }
+<style>
+    .d {
+        border-style: solid;
+        border-width: thin;
+    }
 
-        .life {
-            width: 50%;
-            height: 10px;
-            margin-left: 25%;
-            background-color: lightgreen;
-        }
+    .life {
+        width: 50%;
+        height: 10px;
+        margin-left: 25%;
+        background-color: lightgreen;
+    }
 
-        .player {
-            display: inline-block;
-            width: 49.7%;
-            text-align: center
-        }
-    </style>
+    .player {
+        display: inline-block;
+        width: 49.7%;
+        text-align: center
+    }
+</style>
