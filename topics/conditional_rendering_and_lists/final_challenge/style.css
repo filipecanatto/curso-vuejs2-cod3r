@@ -1,0 +1,56 @@
+.border {
+    border-style: solid;
+    border-width: thin;
+}
+
+.life {
+    width: 50%;
+    height: 15px;
+    margin-left: 25%;
+    background-color: lightgreen;
+    border: solid;
+    border-width: thin;
+    margin-bottom: 2px;
+}
+
+.player {
+    display: inline-block;
+    width: 49.7%;
+    text-align: center
+}
+
+.btn-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.btn-group button {
+    padding: 10px;
+}
+
+.commands {
+    text-align: center;
+}
+
+.attack_btn {
+    background-color: red;
+    color: white;
+}
+
+.special_attack_btn {
+    background-color: orange;
+}
+
+.heal_btn {
+    background-color: green;
+    color: white;
+}
+
+.give_up_btn {
+    background-color: gray;
+}
+
+ul{
+    list-style: none;
+}
