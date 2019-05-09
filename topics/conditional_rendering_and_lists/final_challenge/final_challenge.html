@@ -6,7 +6,7 @@
     <div id='battlefield' class="border">
         <div class=" player">
             <h2>Player</h2>
-            <div class="life"></div>
+            <div class="life" :style="{width:playerWidhtInPerCent}"></div>
             <span>100%</span>
         </div>
         <div class=" player">
@@ -18,7 +18,7 @@
     <br>
     <div class="commands border">
         <div class="btn-group ">
-            <button class="attack_btn">Attack</button>
+            <button class="attack_btn" @click='attack'>Attack</button>
             <button class="special_attack_btn">Special Attack</button>
             <button class="heal_btn">Heal</button>
             <button class="give_up_btn">Give Up Fighting</button>
@@ -34,3 +34,5 @@
 
 
 </div>
+
+<script src="app.js"></script>
