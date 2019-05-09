@@ -1,19 +1,24 @@
 new Vue({
 	el: '#app',
 	data: {
-		playerWidht: 50
+		playerLife: 100,
+		messages: [
+			
+		]
+
 
 	},
 	watch: {
-		playerWidht(newV, oldV) {
+		playerLife(newV, oldV) {
 			console.log('entrei');
+			this.messages.push('The player hint the enemy with 10% of damage.');
 
 		}
 	},
 	methods: {
 		attack() {
-			this.playerWidht -= 5;
-			console.log(this.playerWidht);
+			this.playerLife -= 5;
+			console.log(this.playerLife);
 		}
 	}
 });

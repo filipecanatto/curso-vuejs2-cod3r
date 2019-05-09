@@ -4,15 +4,19 @@
 
 <div id="app">
     <div id='battlefield' class="border">
-        <div class=" player">
+        <div class=" player ">
             <h2>Player</h2>
-            <div class="life" :style="{width:`${playerWidht}%`}"></div>
-            <span>{{playerWidht}}</span><span>%</span>
+            <div class="life">
+                <div class="life-content" :style="[{width:`${playerLife}%`} ]"></div>
+            </div>
+            <span>{{playerLife}}</span><span>%</span>
         </div>
-        <div class=" player">
+        <div class=" player ">
             <h2>Monster</h2>
-            <div class="life"></div>
-            <span>100%</span>
+            <div class="life">
+                <div class="life-content"></div>
+            </div>
+            <span>100</span><span>%</span>
         </div>
     </div>
     <br>
@@ -28,7 +32,7 @@
 
     <div class="border">
         <ul class="">
-            <li>The player hint the enemy with 10% of damage.</li>
+            <li v-for='message in messages'> {{ message }}</li>
         </ul>
     </div>
 
