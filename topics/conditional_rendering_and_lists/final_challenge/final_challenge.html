@@ -16,16 +16,22 @@
             <div class="life">
                 <div class="life-content"></div>
             </div>
-            <span>100</span><span>%</span>
+            <span>{{monsterLife}}</span><span>%</span>
         </div>
     </div>
     <br>
-    <div class="commands border">
+    <div v-if='newGame' class="border">
+        <div class="btn-group">
+            <button class="inic_btn" @click='newGame = !newGame'>New Game</button>
+        </div>
+    </div>
+
+    <div v-else class="border">
         <div class="btn-group ">
             <button class="attack_btn" @click='attack'>Attack</button>
             <button class="special_attack_btn">Special Attack</button>
             <button class="heal_btn">Heal</button>
-            <button class="give_up_btn">Give Up Fighting</button>
+            <button class="give_up_btn" @click='beginFromZero()'>Give Up Fighting</button>
         </div>
     </div>
     <br>

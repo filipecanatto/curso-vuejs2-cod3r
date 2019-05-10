@@ -51,10 +51,19 @@
 	color: white;
 }
 
+.inic_btn {
+	background-color: green;
+	color: white;
+}
+
 .give_up_btn {
 	background-color: gray;
 }
 
 ul {
 	list-style: none;
+}
+
+#app{
+	text-align: center
 }
