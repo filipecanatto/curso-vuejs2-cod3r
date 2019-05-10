@@ -7,17 +7,15 @@ new Vue({
 		messages: [
 
 		]
-
-
 	},
 	watch: {
 		playerLife(newV, oldV) {
-			if (newV < oldV){
+			console.log(newV);
+			console.log(oldV);
+			if (newV > oldV) {
 				return;
 			}
-			console.log('entrei');
 			this.messages.push('The player hint the enemy with 10% of damage.');
-
 		}
 	},
 	methods: {
