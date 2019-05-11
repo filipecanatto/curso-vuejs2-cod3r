@@ -3,8 +3,6 @@ new Vue({
 	data: {
 		playerLife: 100,
 		monsterLife: 100,
-		playerLifeState: 'lightgreen',
-		monsterLifeState: 'lightgreen',
 		newGame: true,
 		messages: [
 
