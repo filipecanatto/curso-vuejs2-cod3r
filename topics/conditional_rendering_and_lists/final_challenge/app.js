@@ -3,6 +3,8 @@ new Vue({
 	data: {
 		playerLife: 100,
 		monsterLife: 100,
+		playerLifeState: 'lightgreen',
+		monsterLifeState: 'lightgreen',
 		newGame: true,
 		messages: [
 
@@ -10,12 +12,23 @@ new Vue({
 	},
 	watch: {
 		playerLife(newV, oldV) {
-			console.log(newV);
-			console.log(oldV);
 			if (newV > oldV) {
 				return;
 			}
-			this.messages.push('The player hint the enemy with 10% of damage.');
+			if (newV <= 20) {
+				this.playerLifeState = 'red';
+			}
+			this.messages.push('The player hint the enemy with ' + (oldV - newV) + ' of damage.');
+		},
+		monsterLife(newV, oldV) {
+			if (newV > oldV) {
+				return;
+			}
+
+			if (newV <= 20) {
+				this.monsterLifeState = 'red';
+			}
+			this.messages.push('The monster hint the enemy with ' + (oldV - newV) + ' of damage.');
 		}
 	},
 	methods: {
@@ -26,8 +39,10 @@ new Vue({
 			this.messages = [''];
 		},
 		attack() {
-			this.playerLife -= 5;
-			console.log(this.playerLife);
-		}
+			this.playerLife -= 9
+			this.monsterLife -= 6
+			this.playerLife = (this.playerLife < 0) ? 0 : this.playerLife;
+			this.monsterLife = (this.monsterLife < 0) ? 0 : this.monsterLife;
+		},
 	}
 });

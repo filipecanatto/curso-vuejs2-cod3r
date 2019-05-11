@@ -7,14 +7,15 @@
         <div class=" player ">
             <h2>Player</h2>
             <div class="life">
-                <div class="life-content" :style="[{width:`${playerLife}%`} ]"></div>
+                <div class="life-content" :style="[{width:`${playerLife}%`}, {backgroundColor:playerLifeState}]"></div>
             </div>
             <span>{{playerLife}}</span><span>%</span>
         </div>
         <div class=" player ">
             <h2>Monster</h2>
             <div class="life">
-                <div class="life-content"></div>
+                <div class="life-content" :style='[{width:`${monsterLife}%`}, {backgroundColor:monsterLifeState}]'>
+                </div>
             </div>
             <span>{{monsterLife}}</span><span>%</span>
         </div>
