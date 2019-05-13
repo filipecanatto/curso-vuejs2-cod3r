@@ -14,29 +14,36 @@ new Vue({
 		playerLife(newV, oldV) {
 			console.log('playerLife')
 			this.alertLowLife(this.playerLife)
-			this.messages.push('The player hint the enemy with ' + (oldV - newV) + ' of damage.');
+
 		},
 		monsterLife(newV, oldV) {
 			this.alertLowLife(this.playerLife)
-			this.messages.push('The monster hint the enemy with ' + (oldV - newV) + ' of damage.');
+
 		}
 	},
 	methods: {
 		restart() {
-			this.restartLifes()
+			this.playerLife = 100
+			this.monsterLife = 100
 			this.isPlayerDied = false
 			this.showResult = false
 			this.showMenu = false
+			this.messages = [''];
 		},
 		showResultInScreen(value) {
 			this.messages = [''];
 			this.isPlayerDied = value
 			this.showResult = true
 		},
-		attack() {
-			console.log('attack')
-			let playerDamage = Math.floor((Math.random() * 9) + 1)
-			let monsterDamage = Math.floor((Math.random() * 6) + 1)
+		simpleAttack() {
+			this.attack(Math.floor((Math.random() * 9) + 1), Math.floor((Math.random() * 6) + 1))
+		},
+		attack(playerDamage, monsterDamage) {
+
+
+			this.messages.push('The player hint the enemy with ' + (playerDamage) + ' of damage.');
+			this.messages.push('The monster hint the enemy with ' + (monsterDamage) + ' of damage.');
+
 			if ((this.playerLife - playerDamage) <= 0) {
 				this.playerLife = 0;
 				return this.showResultInScreen(true)
@@ -46,29 +53,21 @@ new Vue({
 
 			if ((this.monsterLife - monsterDamage) <= 0) {
 				this.monsterLife = 0;
-				return this.showResultInScreen(true)
+				return this.showResultInScreen(false)
 			} else {
 				this.monsterLife -= monsterDamage;
 			}
+
+
 		},
 		specialAttack() {
-			if (this.playerLife == 0 || this.monsterLife == 0) {
-				return
-			}
-			this.playerLife -= Math.floor((Math.random() * 6) + 1)
-			this.monsterLife -= Math.floor((Math.random() * 9) + 1)
+			this.attack(Math.floor((Math.random() * 6) + 1), Math.floor((Math.random() * 9) + 1))
 		},
 		alertLowLife(element) {
 			if (element <= 20) {
 				element = 'red';
 			}
-		},
-		restartLifes() {
-			this.heal(this.playerLife, 100);
-			this.heal(this.monsterLife, 100);
-		},
-		heal(element, value) {
-			this.element = value;
 		}
+
 	}
 });
