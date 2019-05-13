@@ -31,6 +31,13 @@ new Vue({
 				return;
 			}
 
+			if (newV <= 0) {
+				this.showResult = true
+				this.playerDied = false
+				this.messages = ['']
+				return
+			}
+
 			if (this.playerDied) {
 				return
 			}
@@ -54,6 +61,12 @@ new Vue({
 		attack() {
 			this.playerLife -= Math.floor((Math.random() * 9) + 1)
 			this.monsterLife -= Math.floor((Math.random() * 6) + 1)
+			this.playerLife = (this.playerLife < 0) ? 0 : this.playerLife
+			this.monsterLife = (this.monsterLife < 0) ? 0 : this.monsterLife
+		},
+		specialAttack() {
+			this.playerLife -= Math.floor((Math.random() * 6) + 1)
+			this.monsterLife -= Math.floor((Math.random() * 9) + 1)
 			this.playerLife = (this.playerLife < 0) ? 0 : this.playerLife
 			this.monsterLife = (this.monsterLife < 0) ? 0 : this.monsterLife
 		},
