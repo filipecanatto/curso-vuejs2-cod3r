@@ -23,8 +23,8 @@
     </div>
     <br>
     <div v-if='!showResult'>
-        <div v-if='newGame' class="border">
-            <button class="btn inic_btn" @click='newGame = !newGame'>New Game</button>
+        <div v-if='showMenu' class="border">
+            <button class="btn inic_btn" @click='showMenu = !showMenu'>New Game</button>
         </div>
 
         <div v-else class="border">
@@ -32,18 +32,18 @@
                 <button class="attack_btn" @click='attack'>Attack</button>
                 <button class="special_attack_btn" @click='specialAttack()'>Special Attack</button>
                 <button class="heal_btn">Heal</button>
-                <button class="give_up_btn" @click='beginFromZero()'>Give Up Fighting</button>
+                <button class="give_up_btn" @click='restart()'>Give Up Fighting</button>
             </div>
         </div>
     </div>
     <div v-else>
-        <div v-if='playerDied'>
+        <div v-if='isPlayerDied'>
             You lost :(
         </div>
         <div v-else>
             You win :)
         </div>
-        <button class="btn inic_btn" @click='beginFromZero()'>Restart</button>
+        <button class="btn inic_btn" @click='restart()'>Restart</button>
     </div>
 
 
