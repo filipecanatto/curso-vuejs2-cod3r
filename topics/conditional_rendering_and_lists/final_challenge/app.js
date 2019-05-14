@@ -15,6 +15,9 @@ new Vue({
 		playerLife(newV, oldV) {
 			console.log('playerLife')
 			this.alertLowLife(this.playerLife)
+			if (newV > 100) {
+				this.playerLife = 100
+			}
 
 		},
 		monsterLife(newV, oldV) {
@@ -70,10 +73,11 @@ new Vue({
 			}
 		},
 		heal() {
-			let heal = (Math.random() * 11) + 1
-			this.messages.push({ msg: 'The player restore ' + (Math.floor(heal)) + ' of damage.', backgroundColor: 'lightgreen' });
-			let damage = (Math.random() * 6) + 1
-			this.messages.push({ msg: 'The monster hint the enemy with ' + (Math.floor(damage))+ ' of damage.', backgroundColor: 'red' });
+			let heal = Math.floor((Math.random() * 11) + 1)
+			this.messages.push({ msg: 'The player restore ' + heal + ' of damage.', backgroundColor: 'lightgreen' });
+			this.playerLife += heal;
+			let damage = Math.floor((Math.random() * 6) + 1)
+			this.messages.push({ msg: 'The monster hint the enemy with ' + (Math.floor(damage)) + ' of damage.', backgroundColor: 'red' });
 		}
 
 	}
