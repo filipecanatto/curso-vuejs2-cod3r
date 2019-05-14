@@ -7,10 +7,7 @@ new Vue({
 		showResult: false,
 		isPlayerDied: false,
 		messages: [
-			{
-				msg: '',
-				color: 'blue'
-			}
+
 
 		]
 	},
@@ -45,8 +42,8 @@ new Vue({
 		attack(playerDamage, monsterDamage) {
 
 
-			this.messages.push({ msg: 'The player hint the enemy with ' + (playerDamage) + ' of damage.', color: 'blue' });
-			this.messages.push({ msg: 'The monster hint the enemy with ' + (monsterDamage) + ' of damage.', color: 'red' });
+			this.messages.push({ msg: 'The player hint the enemy with ' + (playerDamage) + ' of damage.', backgroundColor: 'lightblue' });
+			this.messages.push({ msg: 'The monster hint the enemy with ' + (monsterDamage) + ' of damage.', backgroundColor: 'red' });
 
 			if ((this.playerLife - playerDamage) <= 0) {
 				this.playerLife = 0;
@@ -74,9 +71,9 @@ new Vue({
 		},
 		heal() {
 			let heal = (Math.random() * 11) + 1
-			this.messages.push('The player restore ' + (heal) + ' of damage.');
+			this.messages.push({ msg: 'The player restore ' + (Math.floor(heal)) + ' of damage.', backgroundColor: 'lightgreen' });
 			let damage = (Math.random() * 6) + 1
-			this.messages.push('The monster hint the enemy with ' + (damage) + ' of damage.');
+			this.messages.push({ msg: 'The monster hint the enemy with ' + (Math.floor(damage))+ ' of damage.', backgroundColor: 'red' });
 		}
 
 	}
