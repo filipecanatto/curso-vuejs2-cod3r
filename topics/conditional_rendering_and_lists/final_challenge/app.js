@@ -5,64 +5,42 @@ new Vue({
 		monsterLife: 100,
 		showMenu: true,
 		showResult: false,
-		isPlayerDied: false,
+		someoneDied: false,
 		messages: [
-
 
 		]
 	},
 	watch: {
 		playerLife(newV, oldV) {
-			console.log('playerLife')
 			this.alertLowLife(this.playerLife)
-			if (newV > 100) {
-				this.playerLife = 100
-			}
-
+			this.playerLife = this.controlLifeLevel(this.playerLife)
 		},
 		monsterLife(newV, oldV) {
 			this.alertLowLife(this.playerLife)
+			this.monsterLife = this.controlLifeLevel(this.monsterLife)
 
+		}, showResult(newV, oldV) {
+			this.someoneDied = (this.playerLife < this.monsterLife) ? true : false
+			this.cleanMessages()
 		}
 	},
 	methods: {
 		restart() {
 			this.playerLife = 100
 			this.monsterLife = 100
-			this.isPlayerDied = false
+			this.someoneDied = false
 			this.showResult = false
 			this.showMenu = false
 			this.messages = [''];
-		},
-		showResultInScreen(value) {
-			this.messages = [''];
-			this.isPlayerDied = value
-			this.showResult = true
 		},
 		simpleAttack() {
 			this.attack(Math.floor((Math.random() * 9) + 1), Math.floor((Math.random() * 6) + 1))
 		},
 		attack(playerDamage, monsterDamage) {
-
-
-			this.messages.push({ msg: 'The player hint the enemy with ' + (playerDamage) + ' of damage.', backgroundColor: 'lightblue' });
-			this.messages.push({ msg: 'The monster hint the enemy with ' + (monsterDamage) + ' of damage.', backgroundColor: 'red' });
-
-			if ((this.playerLife - playerDamage) <= 0) {
-				this.playerLife = 0;
-				return this.showResultInScreen(true)
-			} else {
-				this.playerLife -= playerDamage;
-			}
-
-			if ((this.monsterLife - monsterDamage) <= 0) {
-				this.monsterLife = 0;
-				return this.showResultInScreen(false)
-			} else {
-				this.monsterLife -= monsterDamage;
-			}
-
-
+			this.playerLife -= playerDamage
+			this.logHitPlayer(playerDamage)
+			this.monsterLife -= monsterDamage
+			this.logHitMonster(monsterDamage)
 		},
 		specialAttack() {
 			this.attack(Math.floor((Math.random() * 6) + 1), Math.floor((Math.random() * 9) + 1))
@@ -74,10 +52,33 @@ new Vue({
 		},
 		heal() {
 			let heal = Math.floor((Math.random() * 11) + 1)
-			this.messages.push({ msg: 'The player restore ' + heal + ' of damage.', backgroundColor: 'lightgreen' });
-			this.playerLife += heal;
+			this.logHeal(heal)
 			let damage = Math.floor((Math.random() * 6) + 1)
-			this.messages.push({ msg: 'The monster hint the enemy with ' + (Math.floor(damage)) + ' of damage.', backgroundColor: 'red' });
+			this.logHitMonster(damage)
+
+			this.playerLife -= (heal - damage)
+
+		},
+		controlLifeLevel(element) {
+			if (element <= 0) {
+				this.showResult = true
+				return 0
+			} else if (element > 100) {
+				return 100
+			} else {
+				return element
+			}
+		},
+		logHitPlayer(damage) {
+			this.messages.push({ msg: 'The player hint the enemy with ' + damage + ' of damage.', backgroundColor: 'lightblue' });
+		},
+		logHitMonster(damage) {
+			this.messages.push({ msg: 'The monster hint the enemy with ' + damage + ' of damage.', backgroundColor: 'red' });
+		},
+		logHeal(value) {
+			this.messages.push({ msg: 'The player restore ' + value + ' of damage.', backgroundColor: 'lightgreen' });
+		}, cleanMessages() {
+			this.messages = []
 		}
 
 	}
