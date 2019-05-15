@@ -15,7 +15,7 @@
 <body>
 
     <div class="container">
-        <div id="app">
+        <div id="app" style="margin-top:10px">
             <div id='battlefield' class="border">
                 <div class=" player ">
                     <h2>Player</h2>
@@ -62,9 +62,9 @@
 
             <br>
 
-            <div class="border">
+            <div class="border list-group">
                 <ul>
-                    <li v-for='message in messages' class="log border" :style="[{backgroundColor:message.backgroundColor}]">
+                    <li v-for='message in messages' class="list-group-item" :style="[{backgroundColor:message.backgroundColor}]">
                         {{
                         message.msg }}
                     </li>

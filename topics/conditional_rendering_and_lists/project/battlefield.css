@@ -1,9 +1,4 @@
-.border {
-	border-style: solid;
-	border-width: thin;
-	border-color: black;
-	
-}
+
 
 .life-content {
 	width: 100%;
@@ -72,6 +67,7 @@
 
 .give_up_btn {
 	background-color: gray;
+	color:white
 }
 
 ul {

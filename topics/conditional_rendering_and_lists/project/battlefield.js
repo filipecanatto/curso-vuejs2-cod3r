@@ -12,11 +12,9 @@ new Vue({
 	},
 	watch: {
 		playerLife(newV, oldV) {
-			this.alertLowLife(this.playerLife)
 			this.playerLife = this.controlLifeLevel(this.playerLife)
 		},
 		monsterLife(newV, oldV) {
-			this.alertLowLife(this.playerLife)
 			this.monsterLife = this.controlLifeLevel(this.monsterLife)
 
 		}, showResult(newV, oldV) {
@@ -31,7 +29,7 @@ new Vue({
 			this.someoneDied = false
 			this.showResult = false
 			this.showMenu = false
-			this.messages = [''];
+			this.cleanMessages()
 		},
 		simpleAttack() {
 			this.attack(Math.floor((Math.random() * 9) + 1), Math.floor((Math.random() * 6) + 1))
@@ -44,11 +42,6 @@ new Vue({
 		},
 		specialAttack() {
 			this.attack(Math.floor((Math.random() * 6) + 1), Math.floor((Math.random() * 9) + 1))
-		},
-		alertLowLife(element) {
-			if (element <= 20) {
-				element = 'red';
-			}
 		},
 		heal() {
 			let heal = Math.floor((Math.random() * 11) + 1)
