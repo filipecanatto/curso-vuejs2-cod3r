@@ -1,7 +1,7 @@
 .border {
 	border-style: solid;
 	border-width: thin;
-	border-color: gray;
+	border-color: black;
 	
 }
 
@@ -25,7 +25,7 @@
 	text-align: center
 }
 
-.btn{
+.btn_new{
 	margin-top: 10px;
 	margin-bottom: 10px;
 	display: inline-block;
