@@ -6,6 +6,7 @@ new Vue({
 		showMenu: true,
 		showResult: false,
 		someoneDied: false,
+		messagesCount: 0,
 		messages: [
 
 		]
@@ -20,6 +21,19 @@ new Vue({
 		}, showResult(newV, oldV) {
 			this.someoneDied = (this.playerLife < this.monsterLife) ? true : false
 			this.cleanMessages()
+		}
+	},
+	computed: {
+		sortedMessages: function () {
+			function compare(a, b) {
+				if (a.id > b.id)
+					return -1;
+				if (a.id < b.id)
+					return 1;
+				return 0;
+			}
+
+			return this.messages.sort(compare);
 		}
 	},
 	methods: {
@@ -49,7 +63,7 @@ new Vue({
 			let damage = Math.floor((Math.random() * 6) + 1)
 			this.logHitMonster(damage)
 
-			this.playerLife -= (heal - damage)
+			this.playerLife += (heal - damage)
 
 		},
 		controlLifeLevel(element) {
@@ -63,15 +77,19 @@ new Vue({
 			}
 		},
 		logHitPlayer(damage) {
-			this.messages.push({ msg: 'The player hit the enemy with ' + damage + ' of damage.', backgroundColor: 'lightblue', color: 'lightblack' });
+			this.messagesCount++;
+			this.messages.push({ msg: 'The player hit the enemy with ' + damage + ' of damage.', backgroundColor: 'lightblue', color: 'lightblack', id: this.messagesCount });
 		},
 		logHitMonster(damage) {
-			this.messages.push({ msg: 'The monster hit the enemy with ' + damage + ' of damage.', backgroundColor: 'red', color: 'white' });
+			this.messagesCount++;
+			this.messages.push({ msg: 'The monster hit the enemy with ' + damage + ' of damage.', backgroundColor: 'red', color: 'white', id: this.messagesCount });
 		},
 		logHeal(value) {
-			this.messages.push({ msg: 'The player restore ' + value + ' of damage.', backgroundColor: 'lightgreen', color: 'lightblack' });
+			this.messagesCount++;
+			this.messages.push({ msg: 'The player restore ' + value + ' of damage.', backgroundColor: 'lightgreen', color: 'lightblack', id: this.messagesCount });
 		}, cleanMessages() {
 			this.messages = []
+			this.messagesCount = 0
 		}
 
 	}

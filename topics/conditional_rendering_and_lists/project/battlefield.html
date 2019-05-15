@@ -63,7 +63,7 @@
 
             <div class="border list-group">
                 <ul>
-                    <li v-for='message in messages' class="list-group-item border" :style="[{backgroundColor:message.backgroundColor}, {color:message.color}]">
+                    <li v-for='message in sortedMessages' class="list-group-item border" :style="[{backgroundColor:message.backgroundColor}, {color:message.color}]">
                         {{ message.msg }}
                     </li>
                 </ul>
