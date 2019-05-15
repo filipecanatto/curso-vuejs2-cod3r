@@ -49,11 +49,11 @@
                     </div>
                 </div>
             </div>
-            <div v-else class="border">
-                <div v-if='someoneDied'>
+            <div v-else class="border result">
+                <div v-if='someoneDied' style="color:red; font-weight: bold; padding: 10px">
                     You lost :(
                 </div>
-                <div v-else>
+                <div v-else style="color:blue; font-weight: bold; padding: 10px">
                     You win :)
                 </div>
                 <button class="btn restart_btn" @click='restart()'>Restart</button>
