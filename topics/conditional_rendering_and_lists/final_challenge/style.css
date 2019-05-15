@@ -1,6 +1,8 @@
 .border {
 	border-style: solid;
 	border-width: thin;
+	border-color: gray;
+	
 }
 
 .life-content {
@@ -63,6 +65,11 @@
 	color: white;
 }
 
+.restart_btn {
+	background-color: purple;
+	color: white;
+}
+
 .give_up_btn {
 	background-color: gray;
 }
@@ -76,7 +83,7 @@ ul {
 }
 
 .log {
-	color: white;
+	color: black;
 	padding: 10px;
 	
 }

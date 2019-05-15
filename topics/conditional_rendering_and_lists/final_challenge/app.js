@@ -38,9 +38,9 @@ new Vue({
 		},
 		attack(playerDamage, monsterDamage) {
 			this.playerLife -= playerDamage
-			this.logHitPlayer(playerDamage)
+			this.logHitPlayer(monsterDamage)
 			this.monsterLife -= monsterDamage
-			this.logHitMonster(monsterDamage)
+			this.logHitMonster(playerDamage)
 		},
 		specialAttack() {
 			this.attack(Math.floor((Math.random() * 6) + 1), Math.floor((Math.random() * 9) + 1))
@@ -70,10 +70,10 @@ new Vue({
 			}
 		},
 		logHitPlayer(damage) {
-			this.messages.push({ msg: 'The player hint the enemy with ' + damage + ' of damage.', backgroundColor: 'lightblue' });
+			this.messages.push({ msg: 'The player hit the enemy with ' + damage + ' of damage.', backgroundColor: 'lightblue' });
 		},
 		logHitMonster(damage) {
-			this.messages.push({ msg: 'The monster hint the enemy with ' + damage + ' of damage.', backgroundColor: 'red' });
+			this.messages.push({ msg: 'The monster hit the enemy with ' + damage + ' of damage.', backgroundColor: 'red' });
 		},
 		logHeal(value) {
 			this.messages.push({ msg: 'The player restore ' + value + ' of damage.', backgroundColor: 'lightgreen' });
