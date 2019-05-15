@@ -1,85 +1,83 @@
-
-
 .life-content {
-	width: 100%;
-	height: 15px;
-	background-color: lightgreen;
+    width: 100%;
+    height: 15px;
+    background-color: lightgreen;
 }
 
 .life {
-	margin-left: 25%;
-	width: 50%;
-	margin-bottom: 2px;
-	border: solid;
-	border-width: thin;
+    margin-left: 25%;
+    width: 50%;
+    margin-bottom: 2px;
+    border: solid;
+    border-width: thin;
 }
 
 .player {
-	display: inline-block;
-	width: 49.7%;
-	text-align: center
+    display: inline-block;
+    width: 49.7%;
+    text-align: center
 }
 
-.btn_new{
-	margin-top: 10px;
-	margin-bottom: 10px;
-	display: inline-block;
-	padding: 10px;
+.btn_new {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    padding: 10px;
 }
 
 .btn-group {
-	margin-top: 10px;
-	margin-bottom: 10px;
-	display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
 }
 
 .btn-group button {
-	padding: 10px;
+    padding: 10px;
 }
 
 .commands {
-	text-align: center;
+    text-align: center;
 }
 
 .attack_btn {
-	background-color: red;
-	color: white;
+    background-color: red;
+    color: white;
 }
 
 .special_attack_btn {
-	background-color: orange;
+    background-color: orange;
 }
 
 .heal_btn {
-	background-color: green;
-	color: white;
+    background-color: green;
+    color: white;
 }
 
 .inic_btn {
-	background-color: green;
-	color: white;
+    background-color: green;
+    color: white;
 }
 
 .restart_btn {
-	background-color: purple;
-	color: white;
+    background-color: purple;
+    color: white;
 }
 
 .give_up_btn {
-	background-color: gray;
-	color:white
+    background-color: gray;
+    color: white
 }
 
 ul {
-	list-style: none;
+    list-style: none;
+    margin: 20px 5% 20px 0%;
 }
 
-#app{
-	text-align: center
+#app {
+    text-align: center
 }
 
 .log {
-	color: black;
-	padding: 10px;
-	
+    color: black;
+    padding: 10px;
 }

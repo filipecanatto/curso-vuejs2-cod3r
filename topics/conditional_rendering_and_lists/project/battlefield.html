@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div v-else>
+            <div v-else class="border">
                 <div v-if='someoneDied'>
                     You lost :(
                 </div>
@@ -59,18 +59,15 @@
                 <button class="btn restart_btn" @click='restart()'>Restart</button>
             </div>
 
-
             <br>
 
             <div class="border list-group">
                 <ul>
-                    <li v-for='message in messages' class="list-group-item" :style="[{backgroundColor:message.backgroundColor}]">
-                        {{
-                        message.msg }}
+                    <li v-for='message in messages' class="list-group-item border" :style="[{backgroundColor:message.backgroundColor}, {color:message.color}]">
+                        {{ message.msg }}
                     </li>
                 </ul>
             </div>
-
 
         </div>
     </div>

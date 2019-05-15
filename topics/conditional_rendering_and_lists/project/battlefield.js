@@ -63,13 +63,13 @@ new Vue({
 			}
 		},
 		logHitPlayer(damage) {
-			this.messages.push({ msg: 'The player hit the enemy with ' + damage + ' of damage.', backgroundColor: 'lightblue' });
+			this.messages.push({ msg: 'The player hit the enemy with ' + damage + ' of damage.', backgroundColor: 'lightblue', color: 'lightblack' });
 		},
 		logHitMonster(damage) {
-			this.messages.push({ msg: 'The monster hit the enemy with ' + damage + ' of damage.', backgroundColor: 'red' });
+			this.messages.push({ msg: 'The monster hit the enemy with ' + damage + ' of damage.', backgroundColor: 'red', color: 'white' });
 		},
 		logHeal(value) {
-			this.messages.push({ msg: 'The player restore ' + value + ' of damage.', backgroundColor: 'lightgreen' });
+			this.messages.push({ msg: 'The player restore ' + value + ' of damage.', backgroundColor: 'lightgreen', color: 'lightblack' });
 		}, cleanMessages() {
 			this.messages = []
 		}
