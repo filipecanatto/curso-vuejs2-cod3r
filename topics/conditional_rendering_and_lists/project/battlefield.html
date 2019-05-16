@@ -20,33 +20,31 @@
                 <div class="character ">
                     <h2>Player</h2>
                     <div class="life">
-                        <div class="life-content"
-                            :style="[{width:`${playerLife}%`}, {backgroundColor: (playerLife >20) ? 'lightgreen' : 'red'}]">
+                        <div class="life-content" :style="[{width:`${playerLife}%`}, {backgroundColor: (playerLife >20) ? 'lightgreen' : 'red'}]">
                         </div>
                     </div>
-                    <span>{{playerLife}}</span><span>%</span>
+                    <span>{{playerLife}}%</span>
                 </div>
                 <div class="character">
                     <h2>Monster</h2>
                     <div class="life">
-                        <div class="life-content"
-                            :style="[{width:`${monsterLife}%`}, {backgroundColor: (monsterLife >20) ? 'lightgreen' : 'red'}]">
+                        <div class="life-content" :style="[{width:`${monsterLife}%`}, {backgroundColor: (monsterLife >20) ? 'lightgreen' : 'red'}]">
                         </div>
                     </div>
-                    <span>{{monsterLife}}</span><span>%</span>
+                    <span>{{monsterLife}}%</span>
                 </div>
             </div>
             <br>
             <div class='border' v-if='!showResult'>
-                <button v-if='showMenu' class="btn_new inic_btn btn" @click='showMenu = !showMenu'>New Game</button>
-                <div v-else class="btn-group ">
+                <button v-if='showMenu' class="btn inic_btn" @click='showMenu = !showMenu'>New Game</button>
+                <div v-else id="commands-btn">
                     <button class="attack_btn btn" @click='simpleAttack'>Attack</button>
                     <button class="special_attack_btn btn" @click='specialAttack()'>Special Attack</button>
                     <button class="heal_btn btn" @click='heal()'>Heal</button>
                     <button class="give_up_btn btn" @click='restart()'>Give Up Fighting</button>
                 </div>
             </div>
-            <div v-else class="border result">
+            <div v-else class="border">
                 <div v-if='someoneDied' style="color:red; font-weight: bold; padding: 10px">
                     You lost :(
                 </div>
@@ -58,8 +56,7 @@
             <br>
             <div class="border list-group">
                 <ul>
-                    <li v-for='message in sortedMessages' class="list-group-item border"
-                        :style="[{backgroundColor:message.backgroundColor}, {color:message.color}]">
+                    <li v-for='message in sortedMessages' class="list-group-item border" :style="[{backgroundColor:message.backgroundColor}, {color:message.color}]">
                         {{ message.msg }}
                     </li>
                 </ul>

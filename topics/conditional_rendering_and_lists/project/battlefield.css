@@ -17,21 +17,11 @@
     text-align: center
 }
 
-.btn_new {
+.btn {
     margin-top: 10px;
     margin-bottom: 10px;
-    display: inline-block;
-    padding: 10px;
-}
-
-.btn-group {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: inline-block;
-}
-
-.btn-group button {
-    padding: 10px;
+	display: inline-block;
+	padding: 10px;
 }
 
 .commands {
@@ -81,6 +71,4 @@ ul {
     padding: 10px;
 }
 
-.result {
-	padding: 10px;
-}
+
