@@ -1,0 +1,45 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id='app1'>
+    {{title}}
+    <button @click='change()'>Change</button>
+</div>
+
+<div id='app2'>
+    {{title}}
+    <button @click='change()'>Change</button>
+</div>
+
+<script>
+
+    const vm1 = new Vue({
+        el: '#app1',
+        data: {
+            title: 'test 1'
+        }, methods: {
+            change() {
+                vm2.title += '!'
+            }
+
+        }
+    })
+
+    const vm2 = new Vue({
+        el: '#app2',
+        data: {
+            title: 'test 2'
+        }, methods: {
+            change() {
+                vm1.title += '!'
+            }
+
+        }
+    })
+
+    //changing by JS
+    setTimeout(() => {
+        vm1.title = 'Changed by timer!'
+    }, 2000);
+
+</script>

@@ -1,0 +1,45 @@
+<meta charset="UTF-8">
+
+<div id='app'>
+
+</div>
+
+<script>
+    function MyVue(params) {
+        this.$el = document.querySelector(params.el)
+        this.$data = params.data
+
+        for (let attr in this.$data) {
+            Object.defineProperty(this, attr, {
+                get: () => {
+                    console.log('getting value')
+                    return this.$data[attr]
+                },
+                set: value => {
+                    console.log('setting value')
+                    this.$data[attr] = value
+                }
+            })
+        }
+    }
+
+    const vm = new MyVue({
+        el: '#app',
+        data: {
+            name: 'Maria',
+            nickName: 'Mary'
+        }
+    })
+
+    const example = {
+        tipo: 'robo',
+        cor: 'amarelo'
+    }
+
+    //console.log(example['cor'])
+
+    console.log(vm.name)
+    vm.name = 'Peter'
+    console.log(vm.name)
+
+</script>
