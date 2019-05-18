@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <h1 ref='refAula'>{{aula}}</h1>
+    <h2>{{module}}</h2>
+    <button @click='changeaula'>Change aula</button>
+    <button @click='changeModule'>Change Module</button>
+
+</div>
+
+<script>
+
+const vm = new Vue({
+    el:'#app',
+    data:{
+        aula: 'aula: Using Refs',
+        module: 'The Vue instance'
+    },
+    methods:{
+        changeaula(){
+            this.aula += '#'
+        },
+        changeModule(){
+            this.module += '#'
+        }
+    }
+})
+
+vm.$refs.refAula.innerText = 'Changed by this way :)'
+
+</script>
