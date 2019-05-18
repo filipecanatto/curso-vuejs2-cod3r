@@ -1,8 +1,13 @@
 <meta charset="UTF-8">
 
 <div id='app'>
-
+    {{ name }} {{ nickName }}
 </div>
+
+<!--see-->
+<!--
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+-->
 
 <script>
     function MyVue(params) {
@@ -21,25 +26,31 @@
                 }
             })
         }
+
+        // interpolation
+        const regex = /\{\{([\s\w+]*)\}\}/g
+        this.$el.innerHTML = this.$el.innerHTML.replace(regex, (match, $1) => {
+            const value = this[$1.trim()]
+            console.log(value)
+            return value ? value : eval($1)
+        })
     }
 
+    // begin
     const vm = new MyVue({
         el: '#app',
         data: {
             name: 'Maria',
-            nickName: 'Mary'
+            nickName: 'Mary',
+            address: {
+                street: 'Benedito da Cunha Campos',
+                region: 'Mogi - Mirim'
+            }
         }
     })
 
-    const example = {
-        tipo: 'robo',
-        cor: 'amarelo'
-    }
-
-    //console.log(example['cor'])
-
     console.log(vm.name)
-    vm.name = 'Peter'
-    console.log(vm.name)
+    console.log(vm.nickName)
+    console.log(vm.address)
 
 </script>
