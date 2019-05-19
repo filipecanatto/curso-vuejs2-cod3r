@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    <comp></comp>
+    <comp></comp>
+</div>
+
+<script>
+
+    Vue.component('comp', {
+        template: `
+    <div>
+    <h1>{{aula}}</h1>
+    <h2>{{module}}</h2>
+    <button @click='changeaula'>Change aula</button>
+    <button @click='changeModule'>Change Module</button>
+
+</div>
+    `,
+        data: function () {
+            return {
+                aula: 'aula: Mounting the Vue instance',
+                module: 'The Vue instance'
+            }
+        },
+        methods: {
+            changeaula() {
+                this.aula += '#'
+            },
+            changeModule() {
+                this.module += '#'
+            }
+        }
+    })
+
+    const vm = new Vue({
+        el: '#app',
+
+    })
+
+</script>
