@@ -3,6 +3,7 @@
         <span>{{count}}</span>
         <button @click='add'>+</button>
         <button @click='subtract'>-</button>
+        <div>?</div>
     </div>
 </template>
 
@@ -25,14 +26,18 @@ export default {
 }
 </script>
 
-<style>
-.counter span {
+<style scoped>
+
+div{
+    border: 1px solid blue;
+}
+ span {
     border-bottom: 1px solid #CCC;
     height: 30px;
     padding: 5px 25px;
 }
 
-.counter button {
+ button {
     height: 30px;
     width: 30x;
     border-radius: 15px;
