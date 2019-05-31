@@ -3,14 +3,17 @@
         <h2>As Informações de Usuário</h2>
         <p>Vários detalhes...</p>
         <p>Username: {{invertName()}}</p>
-    
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        name: String
+        name: {
+            type: String,
+            required: true,
+            default: 'Jhon'
+        }
     },
     methods: {
         invertName() {
