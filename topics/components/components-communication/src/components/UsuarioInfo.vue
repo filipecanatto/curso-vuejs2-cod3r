@@ -12,7 +12,11 @@ export default {
         name: {
             type: String,
             required: true,
-            default: 'Jhon'
+            default: function(){
+                return Array(10).fill(0).join(',')
+            }
+            // or
+            //default: 'Jhon'
         }
     },
     methods: {
