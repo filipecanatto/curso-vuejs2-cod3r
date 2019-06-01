@@ -3,9 +3,10 @@
         <h1>Componente Usuário</h1>
         <p>Esse é um componente muito legal!</p>
         <button @click='changeName'>Change Name</button>
+        <p>Nome: <strong>{{name}}</strong></p>
         <hr>
         <div class="componentes">
-            <app-usuario-info v-bind:name='name' />
+            <app-usuario-info v-bind:name='name' @nameHasChanged='name = $event' />
             <app-usuario-editar />
         </div>
     </div>
@@ -25,6 +26,7 @@ export default {
     methods: {
         changeName() {
             this.name = 'Anne'
+           
         }
     }
 }

@@ -3,6 +3,7 @@
         <h2>As Informações de Usuário</h2>
         <p>Vários detalhes...</p>
         <p>Username: {{invertName()}}</p>
+        <button @click='rebootName()'>Reboot name</button>
     </div>
 </template>
 
@@ -22,6 +23,10 @@ export default {
     methods: {
         invertName() {
             return this.name.split('').reverse().join('')
+        },
+        rebootName(){
+            this.name = 'Peter'
+             this.$emit('nameHasChanged', this.name)
         }
     }
 }
