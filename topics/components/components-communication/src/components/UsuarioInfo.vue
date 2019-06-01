@@ -4,6 +4,7 @@
         <p>Vários detalhes...</p>
         <p>Username: {{invertName()}}</p>
         <button @click='rebootName()'>Reboot name</button>
+        <button @click='rebootFName()'>Reboot name (callback)</button>
     </div>
 </template>
 
@@ -16,9 +17,11 @@ export default {
             default: function(){
                 return Array(10).fill(0).join(',')
             }
+          
             // or
             //default: 'Jhon'
-        }
+        },
+          rebootFName: Function
     },
     methods: {
         invertName() {

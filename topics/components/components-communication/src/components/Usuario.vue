@@ -6,7 +6,8 @@
         <p>Nome: <strong>{{name}}</strong></p>
         <hr>
         <div class="componentes">
-            <app-usuario-info v-bind:name='name' @nameHasChanged='name = $event' />
+            <app-usuario-info v-bind:name='name' @nameHasChanged='name = $event'
+            :rebootFName='rebootName' />
             <app-usuario-editar />
         </div>
     </div>
@@ -27,6 +28,9 @@ export default {
         changeName() {
             this.name = 'Anne'
            
+        }, 
+        rebootName(){
+            this.name = 'Peter'
         }
     }
 }
