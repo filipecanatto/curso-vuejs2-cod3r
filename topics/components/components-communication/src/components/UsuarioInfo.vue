@@ -1,10 +1,13 @@
 <template>
     <div class="componente">
+    
         <h2>As Informações de Usuário</h2>
         <p>Vários detalhes...</p>
         <p>Username: {{invertName()}}</p>
+        <p>User old: <strong>{{old}}</strong></p>
         <button @click='rebootName()'>Reboot name</button>
         <button @click='rebootFName()'>Reboot name (callback)</button>
+    
     </div>
 </template>
 
@@ -14,22 +17,23 @@ export default {
         name: {
             type: String,
             required: true,
-            default: function(){
+            default: function() {
                 return Array(10).fill(0).join(',')
             }
-          
+
             // or
             //default: 'Jhon'
         },
-          rebootFName: Function
+        old: Number,
+        rebootFName: Function
     },
     methods: {
         invertName() {
             return this.name.split('').reverse().join('')
         },
-        rebootName(){
+        rebootName() {
             this.name = 'Peter'
-             this.$emit('nameHasChanged', this.name)
+            this.$emit('nameHasChanged', this.name)
         }
     }
 }

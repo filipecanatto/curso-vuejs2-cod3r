@@ -1,14 +1,15 @@
 <template>
     <div class="container">
+    
         <h1>Componente Usuário</h1>
         <p>Esse é um componente muito legal!</p>
         <button @click='changeName'>Change Name</button>
         <p>Nome: <strong>{{name}}</strong></p>
+        <p>Old: <strong>{{old}}</strong></p>
         <hr>
         <div class="componentes">
-            <app-usuario-info v-bind:name='name' @nameHasChanged='name = $event'
-            :rebootFName='rebootName' />
-            <app-usuario-editar />
+            <app-usuario-info v-bind:name='name' @nameHasChanged='name = $event' :rebootFName='rebootName' :old=old />
+            <app-usuario-editar :old=old @oldHasChanged='old = $event + 1' />
         </div>
     </div>
 </template>
@@ -21,15 +22,16 @@ export default {
     components: { AppUsuarioInfo, AppUsuarioEditar },
     data() {
         return {
-            name: 'Peter'
+            name: 'Peter',
+            old: 26
         }
     },
     methods: {
         changeName() {
             this.name = 'Anne'
-           
-        }, 
-        rebootName(){
+
+        },
+        rebootName() {
             this.name = 'Peter'
         }
     }
