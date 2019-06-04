@@ -9,13 +9,17 @@
 </template>
 
 <script>
+// absolute path
+import bus from '@/bus'
+
 export default {
     props: {
         old: Number
     },
     methods: {
         changeOld() {
-            this.$emit('oldHasChanged', 33)
+            this.old += 1
+            bus.changeOld(this.old)
         }
     }
 

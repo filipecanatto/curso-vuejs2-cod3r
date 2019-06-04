@@ -8,10 +8,14 @@
         <button @click='rebootName()'>Reboot name</button>
         <button @click='rebootFName()'>Reboot name (callback)</button>
     
+    
+    
     </div>
 </template>
 
 <script>
+import bus from '@/bus'
+
 export default {
     props: {
         name: {
@@ -35,6 +39,12 @@ export default {
             this.name = 'Peter'
             this.$emit('nameHasChanged', this.name)
         }
+    },
+    created() {
+        // I am listening this event
+        bus.onOldChange( (old) => {
+            this.old = old
+        })
     }
 }
 </script>

@@ -9,7 +9,7 @@
         <hr>
         <div class="componentes">
             <app-usuario-info v-bind:name='name' @nameHasChanged='name = $event' :rebootFName='rebootName' :old=old />
-            <app-usuario-editar :old=old @oldHasChanged='old = $event + 1' />
+            <app-usuario-editar :old=old />
         </div>
     </div>
 </template>
