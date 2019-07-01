@@ -4,8 +4,11 @@
             <button @click="numero--">&lt;</button>
             <button @click="numero++">&gt;</button>
         </span>
-        <citacao v-bind:texto='citacoes[indice].texto'></citacao>
-
+        <citacao>
+            <h1> {{citacoes[indice].autor}} </h1>
+            <p> {{citacoes[indice].texto}} </p>
+            <h6> {{citacoes[indice].fonte}} </h6>
+        </citacao>
       
     </div>
 </template>
