@@ -5,11 +5,15 @@
             <button @click="numero++">&gt;</button>
         </span>
         <citacao>
+            <!--all unamed slots will be mapped to the default slot-->
             <h1 slot='fonte'>{{citacoes[indice].autor}} </h1>
-            <p slot='texto'> {{citacoes[indice].texto}} </p>
+            <p>Citação</p>
+            <p> {{citacoes[indice].texto}} </p>
+            <h6>Autor:</h6>
             <h6 slot='autor'>{{citacoes[indice].fonte}} </h6>
+            <h6 slot='autor'>{{citacoes[indice].fonte}} </h6>
+            <p>Teste</p>
         </citacao>
-      
     </div>
 </template>
 
