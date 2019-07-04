@@ -22,6 +22,13 @@
 import Citacao from './Citacao.vue'
 
 export default {
+
+    created(){
+		console.log('created')
+	},
+	destroyed(){
+		console.log('destroyed')
+	},
     components:{Citacao},
     data() {
         return {

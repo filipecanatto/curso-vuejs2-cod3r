@@ -3,7 +3,10 @@
 		<button @click="componente = 'Citacoes'">Citacoes</button>
 		<button @click="componente = 'Sobre'">Sobre</button>
 		<!-- dinamic component render -->
-		<component :is='componente' />
+		<keep-alive>
+			<component :is='componente' />
+		</keep-alive>
+		
 	</div>
 </template>
 
