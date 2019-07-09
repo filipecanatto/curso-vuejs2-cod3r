@@ -2,14 +2,17 @@
 	<div id="app" class="container">
 		<h1>Tarefas</h1>
 		<BarraProgresso></BarraProgresso>
+		<br>
+		<Entrada></Entrada>
 	</div>
 </template>
 
 <script>
 import BarraProgresso from './componentes/BarraProgresso'
+import Entrada from './componentes/Entrada'
 
 export default {
-	components: { BarraProgresso }
+	components: { BarraProgresso, Entrada }
 
 }
 </script>

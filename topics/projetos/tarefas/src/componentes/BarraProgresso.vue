@@ -1,6 +1,6 @@
 <template>
     <div class="barra_progresso">
-        <div class="progresso" :style="{'width': this.progresso+'%'}">.</div>
+        <div class="progresso" :style="{'width': this.progresso+'%'}"></div>
         <span>{{this.progresso+'%'}}</span>
     </div>
 </template>
@@ -9,7 +9,7 @@
 export default {
     data() {
         return {
-            progresso: 55,
+            progresso: 67,
         }
     }
 
@@ -21,13 +21,14 @@ export default {
     border: 1px solid #FFF;
     width: 80%;
     border-radius: 25px;
+    position: relative;
 }
 
 .progresso {
     display: inline-block;
-    background-color: green;
-    color: green;
+    background-color: rgb(101, 165, 101);
     border-radius: 25px;
+    height: 100%;
 }
 
 span {
