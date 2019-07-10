@@ -4,65 +4,6 @@
             <button>x</button>
             <p>Lavar louca</p>
         </div>
-
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
-
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
-
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
-
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
-
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
-
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
-
-
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
-
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
-
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
-
-          <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
-        </div>
     </div>
 </template>
 
@@ -73,26 +14,21 @@ export default {
 </script>
 
 <style scoped>
-
-.tarefa{
+.tarefa {
     border: 0.5px solid #FFF;
     background-color: rgb(247, 59, 59);
     display: inline-block;
     margin-right: 10px;
     margin-top: 10px;
     border-radius: 3px;
+    width: 130px;
 }
 
-button{
- 
-
-  border: 0.5px solid #FFF;
-
+button {
+    border: 0.5px solid #FFF;
     border-left: transparent;
-  
-  margin-left: 75%;
+    margin-left: 84%;
+    border-radius: 0px 3px 0px 0px;
 }
-
-
 
 </style>

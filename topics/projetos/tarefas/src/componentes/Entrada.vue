@@ -18,7 +18,7 @@ export default {
 }
 
 .input {
-    border: 1px solid transparent;
+    border: transparent;
     background-color: transparent;
     color: #FFF;
 }
