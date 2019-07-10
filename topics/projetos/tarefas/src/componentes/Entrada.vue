@@ -12,22 +12,15 @@ export default {
 </script>
 
 <style scoped>
-.entrada {
-    border: 1px solid #FFF;
-    border-radius: 5px;
+
+input {
+    border-radius: 5px 0px 0px 5px;
+   
 }
 
-.input {
-    border: transparent;
-    background-color: transparent;
-    color: #FFF;
-}
-
-.button {
-    color: #FFF;
-    background-color: blue;
-    border: transparent;
-    border-left: 1px solid #FFF;
+button {
     border-radius: 0px 5px 5px 0px;
+    background-color: blue;
+    color:#FFF;
 }
 </style>
