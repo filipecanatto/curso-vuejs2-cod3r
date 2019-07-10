@@ -1,7 +1,7 @@
 <template>
     <div class="entrada">
-        <input placeholder="Nova Tarefa?" type="text">
-        <button>+</button>
+        <input placeholder="Nova Tarefa?" type="text" class="input">
+        <button class='button'>+</button>
     </div>
 </template>
 
@@ -11,22 +11,23 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .entrada {
-    border: 0.6px solid #FFF;
+    border: 1px solid #FFF;
     border-radius: 5px;
 }
 
-input {
-    border: 0.5px solid transparent;
+.input {
+    border: 1px solid transparent;
     background-color: transparent;
     color: #FFF;
 }
 
-button {
+.button {
     color: #FFF;
     background-color: blue;
-    border: 0.5px solid #FFF;
-    border-radius: 15px;
+    border: transparent;
+    border-left: 1px solid #FFF;
+    border-radius: 0px 5px 5px 0px;
 }
 </style>

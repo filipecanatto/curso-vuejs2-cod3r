@@ -4,15 +4,18 @@
 		<BarraProgresso></BarraProgresso>
 		<br>
 		<Entrada></Entrada>
+		<br>
+		<Tarefas></Tarefas>
 	</div>
 </template>
 
 <script>
 import BarraProgresso from './componentes/BarraProgresso'
 import Entrada from './componentes/Entrada'
+import Tarefas from './componentes/QuadroTarefas'
 
 export default {
-	components: { BarraProgresso, Entrada }
+	components: { BarraProgresso, Entrada, Tarefas }
 
 }
 </script>
