@@ -1,14 +1,34 @@
 <template>
     <div class="quadro">
-        <div class="tarefa">
-            <button>x</button>
-            <p>Lavar louca</p>
+        <div class="tarefa" v-for='(tarefa, index) in tarefas' v-bind:key='tarefa.nome'>
+            <button @click='deletaTarefa(index)'>x</button>
+            <p>{{tarefa.nome}}</p>
         </div>
     </div>
 </template>
 
 <script>
+import bus from '@/bus'
+
 export default {
+
+    data() {
+        return {
+            tarefas: []
+        }
+    },
+    methods:{
+        deletaTarefa(index){
+            this.tarefas.splice(index, 1)
+        }
+    },
+    created() {
+        bus.aoAdicionarTarefa(
+            (tarefa) =>{
+                this.tarefas.push({nome:tarefa})
+            }
+        );
+    }
 
 }
 </script>
@@ -30,5 +50,4 @@ button {
     margin-left: 84%;
     border-radius: 0px 3px 0px 0px;
 }
-
 </style>
