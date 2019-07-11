@@ -4,6 +4,7 @@
             <div class="card-body">
                 <p class="card-text">{{tarefa.nome}}</p>
                 <a href="#" class="card-link" @click='deletaTarefa(index)'>Concluir</a>
+                <a href="#" class="card-link" @click='deletaTarefa(index)'>Excluir</a>
             </div>
         </div>
     </div>
