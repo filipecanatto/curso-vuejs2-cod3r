@@ -1,8 +1,10 @@
 <template>
     <div class="quadro">
-        <div class="tarefa" v-for='(tarefa, index) in tarefas' v-bind:key='tarefa.nome'>
-            <button @click='deletaTarefa(index)'>x</button>
-            <p>{{tarefa.nome}}</p>
+        <div class="card" style="width: 18rem;" v-for='(tarefa, index) in tarefas' v-bind:key='tarefa.nome'>
+            <div class="card-body">
+                <p class="card-text">{{tarefa.nome}}</p>
+                <a href="#" class="card-link" @click='deletaTarefa(index)'>Concluir</a>
+            </div>
         </div>
     </div>
 </template>
@@ -17,15 +19,15 @@ export default {
             tarefas: []
         }
     },
-    methods:{
-        deletaTarefa(index){
+    methods: {
+        deletaTarefa(index) {
             this.tarefas.splice(index, 1)
         }
     },
     created() {
         bus.aoAdicionarTarefa(
-            (tarefa) =>{
-                this.tarefas.push({nome:tarefa})
+            (tarefa) => {
+                this.tarefas.push({ nome: tarefa })
             }
         );
     }
@@ -34,20 +36,10 @@ export default {
 </script>
 
 <style scoped>
-.tarefa {
-    border: 0.5px solid #FFF;
-    background-color: rgb(247, 59, 59);
+.card{
+    background-color: #ff6666;
     display: inline-block;
-    margin-right: 10px;
+    margin-left: 10px;
     margin-top: 10px;
-    border-radius: 3px;
-    width: 130px;
-}
-
-button {
-    border: 0.5px solid #FFF;
-    border-left: transparent;
-    margin-left: 84%;
-    border-radius: 0px 3px 0px 0px;
 }
 </style>

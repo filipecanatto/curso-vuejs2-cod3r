@@ -1,39 +1,39 @@
 <template>
-    <div class="entrada">
-        <input placeholder="Nova Tarefa?" type="text" class="input" v-model='nomeTarefa'>
-        <button class='button' @click="adicionarTarefa()">+</button>
-    </div>
+    <form>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Adicione uma tarefa" v-model='nomeTarefa'>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit" @click="adicionarTarefa()">+</button>
+            </div>
+        </div>
+    
+    </form>
 </template>
 
 <script>
 import bus from '@/bus'
 export default {
 
-    data(){
-        return{
-            nomeTarefa:null
+    data() {
+        return {
+            nomeTarefa: null
         }
     },
-    methods:{
-        adicionarTarefa(){
-            console.log(this.nomeTarefa)
+    methods: {
+        adicionarTarefa() {
             bus.adicionarTarefa(this.nomeTarefa)
         }
-    }
+    },
+    created(){
+        console.log('entrada criada')
+    },
 
 }
 </script>
 
 <style scoped>
-
-input {
-    border-radius: 5px 0px 0px 5px;
-   
-}
-
-button {
-    border-radius: 0px 5px 5px 0px;
+.btn-outline-secondary {
     background-color: blue;
-    color:#FFF;
+    color: #FFF;
 }
 </style>
