@@ -21,7 +21,9 @@ export default {
     },
     methods: {
         adicionarTarefa() {
+            console.log('task added')
             bus.adicionarTarefa(this.nomeTarefa)
+            this.nomeTarefa=null;
         }
     },
     created(){
