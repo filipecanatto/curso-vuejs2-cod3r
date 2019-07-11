@@ -3,7 +3,7 @@
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Adicione uma tarefa" v-model='nomeTarefa'>
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit" @click="adicionarTarefa()">+</button>
+                <button class="btn btn-outline-secondary" type="button" @click="adicionarTarefa()">+</button>
             </div>
         </div>
     
