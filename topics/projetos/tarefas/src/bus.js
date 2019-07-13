@@ -7,6 +7,12 @@ export default new Vue({
         },
         aoAdicionarTarefa(callback){
             this.$on('umaTarefaFoiAdicionada', callback)
+        },
+        atualizarPorcentagem(tarefa){
+            this.$emit('atualizarPorcentagem', tarefa)
+        },
+        aoAtualizarPorcentagem(callback){
+            this.$on('atualizarPorcentagem', callback)
         }
     }
 })

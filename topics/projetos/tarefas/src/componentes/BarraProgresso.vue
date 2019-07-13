@@ -6,11 +6,33 @@
 </template>
 
 <script>
+import bus from '@/bus'
 export default {
     data() {
         return {
-            progresso: 67,
+            progresso: 0
         }
+    },
+    created() {
+
+        bus.aoAtualizarPorcentagem((tarefas) => {
+            let total = 0
+            let finalizado = 0
+
+            tarefas.forEach(element => {
+                total++
+                if (element.finalizado) {
+                    finalizado++
+                }
+            });
+
+            if (total > 0) {
+                this.progresso = (finalizado / total) * 100
+            }
+
+        })
+
+
     }
 
 }
