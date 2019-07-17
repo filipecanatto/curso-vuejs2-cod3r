@@ -6,9 +6,9 @@
 		<hr>
 		<p v-destaque="cor">Usando diretiva personalizada</p>
 		<p v-destaque="'lightblue'">Usando diretiva personalizada</p>
-		<p v-destaque:fundo="'lightblue'">Usando diretiva personalizada</p>
+		<p v-destaque:fundo.atrasar="'lightblue'">Usando diretiva personalizada</p>
 		<!-- diretiva:arg.modificadores=valor-->
-		<p v-teste:arg.mod1.mod2="'valie'"></p>
+		<p v-teste:arg.mod1.mod2="'value'"></p>
 	</div>
 </template>
 
