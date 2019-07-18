@@ -3,57 +3,67 @@
 		<h1>Diretivas</h1>
 		<p v-text="'usando a diretiva v-text'">tst</p>
 		<p v-html="'usando a diretiva <strong>v-html</strong>'"></p>
-		<hr>
-		<p v-destaque="cor">Usando diretiva personalizada com data</p>
-		<p v-destaque="'lightblue'">Usando diretiva personalizada com string</p>
+		<hr />
+		<p v-destaque="cor">Usando diretiva personalizada com variavel</p>
+		<p v-destaque="'lightgreen'">Usando diretiva personalizada com string</p>
 		
-		<p v-destaque-local="'lightblue'">Usando diretiva personalizada local</p>
-		<p v-destaque:fundo.atrasar="'lightblue'">Usando diretiva personalizada e bricando com arg e modificadores</p>
+		<p v-destaque-local.atrasar.alternar="'lightblue'">Usando diretiva personalizada local com dois modificadores</p>
+		<p v-destaque:fundo.atrasar.alternar="'lightgreen'">Usando diretiva personalizada global</p>
 		<!-- diretiva:arg.modificadores=valor-->
-		<p v-teste:arg.mod1.mod2="'value'"></p>
+		<!--p v-teste:arg.mod1.mod2="'value'"></p-->
 	</div>
 </template>
 
 <script>
 export default {
 	directives: {
-		'destaque-local': {
+		"destaque-local": {
 			bind(el, binding, vnode) {
 				//el.style.backgroundColor='lightgreen'
 
 				let atraso = 0;
+				const cor1 = binding.value
+				const cor2 = 'purple'
+				let corAtual = cor1
 
-				if (binding.modifiers['atrasar']) {
+				const aplicarCor = cor => {
+					if (binding.arg === "fundo") {
+						el.style.backgroundColor = cor;
+					} else {
+						el.style.color = cor;
+					}
+				};
+
+				if (binding.modifiers["atrasar"]) {
 					atraso = 3000;
 				}
 
 				setTimeout(() => {
 
-					if (binding.arg === 'fundo') {
-						el.style.backgroundColor = binding.value
-					} else {
-						el.style.color = binding.value
+					if (binding.modifiers["alternar"]) {
+						setInterval(() => {
+							corAtual = (corAtual === cor1 ? cor2 : cor1)
+							aplicarCor(corAtual)
+
+						}, 1000);
 					}
 
+					aplicarCor(binding.value)
 				}, atraso);
-
-
-
 			}
 		}
 	},
 	data() {
 		return {
-			cor: 'lightblue'
-		}
+			cor: "lightblue"
+		};
 	}
-
-}
+};
 </script>
 
 <style>
 #app {
-	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	font-family: "Avenir", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
