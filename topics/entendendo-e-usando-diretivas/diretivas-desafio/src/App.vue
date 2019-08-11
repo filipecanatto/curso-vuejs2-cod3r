@@ -4,12 +4,40 @@
 		<hr>
 		<!-- Exercício -->
 		<!-- Escreva uma diretiva que funcione com o v-on (escute eventos) -->
+		<button v-when:click='action'>Execute</button>
+		<p v-when:mousemove='mouseEnter'
+			v-when:mouseleave='mouseLeave'>
+			Handling mouse events with vue directives</p>
 	</div>
 </template>
 
 <script>
 export default {
-	
+	directives: {
+		when: {
+			bind(el, binding) {
+
+				const type = binding.arg
+				const func = binding.value
+				el.addEventListener(type, function(){
+					func()
+				})
+			}
+
+		}
+	},
+	methods: {
+		action() {
+			alert('an action was executed.')
+		},
+		mouseEnter(){
+			console.log('mouse enter.')
+		},
+		mouseLeave(){
+			console.log('mouse leave!')
+		}
+	}
+
 }
 </script>
 
