@@ -3,6 +3,7 @@
 		<h1>Filtros & Mixins</h1>
 		<hr>
 		<p>{{cpf | cpfFilter | inverter}}</p>
+		<input :value='cpf | cpfFilter' type="text">
 	</div>
 </template>
 
@@ -37,4 +38,10 @@ export default {
 	margin-top: 60px;
 	font-size: 2.5rem;
 }
+
+input{
+	font-size: 2.5rem;
+}
+
+
 </style>
