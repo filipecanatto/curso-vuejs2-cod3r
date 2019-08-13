@@ -2,6 +2,7 @@
 	<div id="app">
 		<h1>Filtros & Mixins</h1>
 		<hr>
+		<p>{{usuarioLogado}}</p>
 		<p>{{cpf | cpfFilter | inverter}}</p>
 		<input :value='cpf | cpfFilter' type="text">
 		<hr>
@@ -13,15 +14,20 @@
 			</ul>
 			<input v-model='fruta' @keydown.enter="add" type="text">
 		</div>
+		<br>
+	
 	</div>
 </template>
 
 <script>
+import usuarioLogagdo from './UsuarioLogado'
+import frutasMixin from './FrutasMixin'
 import Frutas from './Frutas'
 export default {
 	components: {
 		Frutas
 	},
+	mixins: [frutasMixin, usuarioLogagdo],
 	filters: {
 		cpfFilter(value) {
 			// transforma string em vetor de char
@@ -36,13 +42,7 @@ export default {
 	data() {
 		return {
 			cpf: '35895712588',
-			fruta: '',
-			frutas: ['banana', 'laranja', 'maça']
-		}
-	},
-	methods: {
-		add() {
-			this.frutas.push(this.fruta)
+			frutas:['abacate']
 		}
 	}
 }
