@@ -2,6 +2,7 @@
 	<div id="app">
 		<h1>Filtros & Mixins</h1>
 		<hr>
+		<p>{{global}}</p>
 		<p>{{usuarioLogado}}</p>
 		<p>{{cpf | cpfFilter | inverter}}</p>
 		<input :value='cpf | cpfFilter' type="text">
@@ -44,7 +45,10 @@ export default {
 			cpf: '35895712588',
 			frutas:['abacate']
 		}
-	}
+	},
+	created(){
+        console.log('created - app')
+    }
 }
 </script>
 

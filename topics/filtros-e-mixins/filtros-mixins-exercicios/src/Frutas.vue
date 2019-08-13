@@ -10,7 +10,10 @@
 <script>
 import frutasMixin from './FrutasMixin'
 export default {
-    mixins:[frutasMixin]
+    mixins: [frutasMixin],
+    created() {
+        console.log('created - frutas')
+    }
 }
 </script>
 
