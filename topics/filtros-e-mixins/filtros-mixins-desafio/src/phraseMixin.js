@@ -4,13 +4,7 @@ export default {
 			return this.phrase.replace(/ /g, ",")
 		},
 		countWordsMixin() {
-			let arr = this.phrase.split(" ")
-			let newArr = []
-			arr.forEach(element => {
-				element = element.concat(" " + element.length)
-				newArr.push(element)
-			});
-			return newArr.join()
+			return this.phrase.split(' ').map(element => element+' ('+element.length+')').join(' ')
 		}
 	}
 }
