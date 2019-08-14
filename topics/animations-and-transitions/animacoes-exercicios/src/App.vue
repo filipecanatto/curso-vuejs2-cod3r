@@ -1,13 +1,25 @@
 <template>
 	<div id="app" class="container-fluid">
 		<h1>Animações</h1>
+		<hr>
+		<b-button variant='primary' class="mb-4" @click="show = !show">Show Message</b-button>
+		
+		<transition>
+			<b-alert varint='info' show v-if="show">{{message}}</b-alert>
+		</transition>
+
 	</div>
 </template>
 
 <script>
 
 export default {
-
+	data(){
+		return{
+			message:'An information message to user.',
+			show:false
+		}
+	}
 }
 </script>
 
