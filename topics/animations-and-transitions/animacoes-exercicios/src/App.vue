@@ -3,21 +3,24 @@
 		<h1>Animações</h1>
 		<hr>
 		<b-button variant='primary' class="mb-4" @click="show = !show">Show Message</b-button>
-		
+	
 		<transition name='fade'>
 			<b-alert varint='info' show v-if="show">{{message}}</b-alert>
 		</transition>
-
+	
+		<transition name='slide'>
+			<b-alert varint='info' show v-if="show">{{message}}</b-alert>
+		</transition>
+	
 	</div>
 </template>
 
 <script>
-
 export default {
-	data(){
-		return{
-			message:'An information message to user.',
-			show:false
+	data() {
+		return {
+			message: 'An information message to user.',
+			show: false
 		}
 	}
 }
@@ -34,28 +37,34 @@ export default {
 	font-size: 1.5rem;
 }
 
-.fade-enter{
+.fade-enter .fade-leave-to {
 	opacity: 0
 }
 
-.fade-enter-active{
+.fade-enter-active .fade-leave-active {
 	transition: opacity 2s
 }
 
-.face-enter-to{
+.face-enter-to .fade-leave {
 	opacity: 1
 }
 
-.fade-leave{
-	opacity: 1
+@keyframes slide-in {
+	from { transform: translateY(40px) }
+	to { transform: translateY(0) }
 }
 
-.fade-leave-active{
-	transition: opacity 2s
+@keyframes slide-out {
+	from { transform: translateY(0) }
+	to { transform: translateY(40px) }
 }
 
-.fade-leave-to{
-	opacity: 0
+.slide-enter-active{
+	animation: slide-in 2s ease;
+}
+
+.slide-leave-active{
+	animation: slide-in 2s ease;
 }
 
 </style>
