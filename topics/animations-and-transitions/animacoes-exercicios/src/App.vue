@@ -4,11 +4,11 @@
 		<hr>
 		<b-button variant='primary' class="mb-4" @click="show = !show">Show Message</b-button>
 	
-		<transition name='fade'>
+		<transition name='fade' appear>
 			<b-alert variant='info' show v-show="show">{{message}}</b-alert>
 		</transition>
 	
-		<transition name='slide' type="animation">
+		<transition name='slide' type="animation" appear>
 			<b-alert variant='info' show v-show="show">{{message}}</b-alert>
 		</transition>
 	
@@ -20,7 +20,7 @@ export default {
 	data() {
 		return {
 			message: 'An information message to user.',
-			show: false
+			show: true
 		}
 	}
 }
