@@ -5,11 +5,11 @@
 		<b-button variant='primary' class="mb-4" @click="show = !show">Show Message</b-button>
 	
 		<transition name='fade'>
-			<b-alert variant='info' show v-if="show">{{message}}</b-alert>
+			<b-alert variant='info' show v-show="show">{{message}}</b-alert>
 		</transition>
 	
 		<transition name='slide' type="animation">
-			<b-alert variant='info' show v-if="show">{{message}}</b-alert>
+			<b-alert variant='info' show v-show="show">{{message}}</b-alert>
 		</transition>
 	
 	</div>
@@ -75,7 +75,7 @@ export default {
 
 .slide-leave-active {
 	animation: slide-out 2s ease;
-	transition: opacity 6s;
+	transition: opacity 2s;
 }
 
 .slide-enter, .slide-leave-to {
