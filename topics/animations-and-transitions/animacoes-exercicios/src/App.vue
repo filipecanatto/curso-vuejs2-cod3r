@@ -41,30 +41,47 @@ export default {
 	opacity: 0
 }
 
-.face-enter-to .fade-leave {
+.fade-enter-to .fade-leave {
 	opacity: 1
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
 	transition: opacity 2s
 }
 
 @keyframes slide-in {
-	from { transform: translateY(40px) }
-	to { transform: translateY(0) }
+	from {
+		transform: translateY(40px)
+	}
+	to {
+		transform: translateY(0)
+	}
 }
 
 @keyframes slide-out {
-	from { transform: translateY(0) }
-	to { transform: translateY(40px) }
+	from {
+		transform: translateY(0)
+	}
+	to {
+		transform: translateY(40px)
+	}
 }
 
-.slide-enter-active{
+.slide-enter-active {
 	animation: slide-in 2s ease;
+	transition: opacity 2s;
 }
 
-.slide-leave-active{
+.slide-leave-active {
 	animation: slide-out 2s ease;
+	transition: opacity 2s;
 }
+
+.slide-enter, .slide-leave-to {
+	opacity: 0
+}
+
+
 
 </style>
