@@ -1,10 +1,10 @@
 <template>
-	<div id="app" class="container-fluid">
+	<div id="app" class="container">
 		<h1>Animações</h1>
 		<hr>
 		<b-button variant='primary' class="mb-4" @click="show = !show">Show Message</b-button>
 	
-		<transition name='fade' appear>
+		<!-- <transition name='fade' appear>
 			<b-alert variant='info' show v-show="show">{{message}}</b-alert>
 		</transition>
 	
@@ -17,6 +17,16 @@
 				<p>(usando a lib animate.css)</p>
 				<b-alert variant='info' show>{{message}}</b-alert>
 			</div>
+		</transition> -->
+
+		<br>
+		<b-select v-model='animationType' class="mb-4 col-2">
+			<option value="fade">Fade</option>
+			<option value="slide">Slide</option>
+		</b-select>
+
+		<transition :name='animationType'>
+			<b-alert variant='info' show v-show="show">{{message}}</b-alert>
 		</transition>
 	
 	</div>
@@ -27,7 +37,8 @@ export default {
 	data() {
 		return {
 			message: 'An information message to user.',
-			show: false
+			show: false,
+			animationType:'fade'
 		}
 	}
 }
