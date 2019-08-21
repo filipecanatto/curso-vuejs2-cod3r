@@ -12,6 +12,13 @@
 			<b-alert variant='info' show v-show="show">{{message}}</b-alert>
 		</transition>
 	
+		<transition enter-active-class="animated bounce" leave-active-class="animated shake">
+			<div v-show="show">
+				<p>(usando a lib animate.css)</p>
+				<b-alert variant='info' show>{{message}}</b-alert>
+			</div>
+		</transition>
+	
 	</div>
 </template>
 
@@ -20,7 +27,7 @@ export default {
 	data() {
 		return {
 			message: 'An information message to user.',
-			show: true
+			show: false
 		}
 	}
 }
@@ -78,10 +85,8 @@ export default {
 	transition: opacity 2s;
 }
 
-.slide-enter, .slide-leave-to {
+.slide-enter,
+.slide-leave-to {
 	opacity: 0
 }
-
-
-
 </style>
