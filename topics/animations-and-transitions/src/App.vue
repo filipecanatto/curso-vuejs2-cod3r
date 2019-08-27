@@ -39,19 +39,33 @@
 	
 			</div>
 		</transition>
-	
+		<hr>
+		<div class="mb-4">
+			<b-button variant='primary' @click="SelectedComponent = 'WarningAlert' " class="mr-2">Warning</b-button>
+			<b-button variant='secondary' @click="SelectedComponent = 'WarningInfo' " >Info</b-button>
+		</div>
+		<transition name='fade' mode='out-in'>
+			<component :is='SelectedComponent'> </component>
+		</transition>
 	</div>
 </template>
 
 <script>
+import WarningAlert from './WarningAlert'
+import WarningInfo from './WarningInfo'
 export default {
+	components:{
+		WarningAlert, 
+		WarningInfo
+	},
 	data() {
 		return {
 			message: 'An information message to user.',
 			show: false,
 			show2: true,
 			animationType: 'fade',
-			baseWidth: 0
+			baseWidth: 0,
+			SelectedComponent: 'WarningAlert'
 		}
 	},
 	methods: {
