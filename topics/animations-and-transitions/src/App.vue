@@ -2,7 +2,7 @@
 	<div id="app" class="container">
 		<h1>Animações</h1>
 		<hr>
-		<b-button variant='primary' class="mb-4" @click="show = !show">Show Message</b-button>
+		<!-- <b-button variant='primary' class="mb-4" @click="show = !show">Show Message</b-button> -->
 	
 		<!-- ANIMATION WITH CSS -->
 		<!-- <transition name='fade' appear>
@@ -20,7 +20,7 @@
 										</div>
 									</transition> -->
 	
-		<br>
+		<!-- <br>
 		<b-select v-model='animationType' class="mb-4 col-2">
 			<option value="fade">Fade</option>
 			<option value="slide">Slide</option>
@@ -30,9 +30,9 @@
 			<b-alert variant='info' key="info" show v-if="show">{{message}}</b-alert>
 			<b-alert variant='warning' key="warn" show v-else>{{message}}</b-alert>
 		</transition>
-		<br>
+		<br> -->
 		<!-- ANIMATION WITH JAVASCRIPT-->
-		<hr>
+		<!-- <hr>
 		<button @click="show2 = !show2">Switch</button>
 		<transition @before-enter='beforeEnter' @enter='enter' @after-enter='afterEnter' @enter-cancelled='enterCancelled' @before-leave='beforeLeave' @leave='leave' @after-leave='afterLeave' @leave-cancelled='leaveCancelled'>
 			<div class="box" v-if='show2'>
@@ -46,13 +46,15 @@
 		</div>
 		<transition name='fade' mode='out-in'>
 			<component :is='SelectedComponent'> </component>
-		</transition>
+		</transition> -->
 
 		<hr>
 		<b-button variant='secondary' @click="addStudent" class="mb-4">Add Student</b-button>
-		<b-list-group v-for='(student, i) in students' :key='student'>
-			<b-list-group-item @click="removeStudent(i)" >{{student}}</b-list-group-item>
-		</b-list-group>
+		<transition-group name='slide' tag='div'>
+			<b-list-group v-for='(student, i) in students' :key='student'>
+				<b-list-group-item @click="removeStudent(i)" >{{student}}</b-list-group-item>
+			</b-list-group>
+		</transition-group>
 
 	</div>
 </template>
@@ -190,6 +192,8 @@ export default {
 }
 
 .slide-leave-active {
+	position: absolute;
+	width: 100%;
 	animation: slide-out 2s ease;
 	transition: opacity 2s;
 }
@@ -197,5 +201,9 @@ export default {
 .slide-enter,
 .slide-leave-to {
 	opacity: 0
+}
+
+.slide-move{
+	transition: transform 1s
 }
 </style>
