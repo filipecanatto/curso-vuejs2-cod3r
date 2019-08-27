@@ -6,19 +6,19 @@
 	
 		<!-- ANIMATION WITH CSS -->
 		<!-- <transition name='fade' appear>
-					<b-alert variant='info' show v-show="show">{{message}}</b-alert>
-				</transition>
-			
-				<transition name='slide' type="animation" appear>
-					<b-alert variant='info' show v-show="show">{{message}}</b-alert>
-				</transition>
-			
-				<transition enter-active-class="animated bounce" leave-active-class="animated shake">
-					<div v-show="show">
-						<p>(usando a lib animate.css)</p>
-						<b-alert variant='info' show>{{message}}</b-alert>
-					</div>
-				</transition> -->
+						<b-alert variant='info' show v-show="show">{{message}}</b-alert>
+					</transition>
+				
+					<transition name='slide' type="animation" appear>
+						<b-alert variant='info' show v-show="show">{{message}}</b-alert>
+					</transition>
+				
+					<transition enter-active-class="animated bounce" leave-active-class="animated shake">
+						<div v-show="show">
+							<p>(usando a lib animate.css)</p>
+							<b-alert variant='info' show>{{message}}</b-alert>
+						</div>
+					</transition> -->
 	
 		<br>
 		<b-select v-model='animationType' class="mb-4 col-2">
@@ -33,7 +33,7 @@
 		<br>
 		<!-- ANIMATION WITH JAVASCRIPT-->
 		<hr>
-		<button @click="show2 = !show2">Show</button>
+		<button @click="show2 = !show2">Switch</button>
 		<transition @before-enter='beforeEnter' @enter='enter' @after-enter='afterEnter' @enter-cancelled='enterCancelled' @before-leave='beforeLeave' @leave='leave' @after-leave='afterLeave' @leave-cancelled='leaveCancelled'>
 			<div class="box" v-if='show2'>
 	
@@ -50,7 +50,8 @@ export default {
 			message: 'An information message to user.',
 			show: false,
 			show2: true,
-			animationType: 'fade'
+			animationType: 'fade',
+			baseWidth: 0
 		}
 	},
 	methods: {
@@ -58,8 +59,19 @@ export default {
 			console.log('beforeEnter');
 		},
 		enter(el, done) {
-			console.log('enter');
-			done()
+			let round = 1
+			const timer = setInterval(() => {
+				let newWidth = this.baseWidth + (round * 10)
+				el.style.width = newWidth + 'px'
+				round++
+
+				if (round > 30) {
+					clearInterval(timer)
+					done()
+				}
+
+			}, 20);
+
 		},
 		afterEnter(el) {
 			console.log('afterEnter');
