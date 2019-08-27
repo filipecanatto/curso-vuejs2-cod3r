@@ -6,19 +6,19 @@
 	
 		<!-- ANIMATION WITH CSS -->
 		<!-- <transition name='fade' appear>
-						<b-alert variant='info' show v-show="show">{{message}}</b-alert>
-					</transition>
-				
-					<transition name='slide' type="animation" appear>
-						<b-alert variant='info' show v-show="show">{{message}}</b-alert>
-					</transition>
-				
-					<transition enter-active-class="animated bounce" leave-active-class="animated shake">
-						<div v-show="show">
-							<p>(usando a lib animate.css)</p>
-							<b-alert variant='info' show>{{message}}</b-alert>
-						</div>
-					</transition> -->
+										<b-alert variant='info' show v-show="show">{{message}}</b-alert>
+									</transition>
+								
+									<transition name='slide' type="animation" appear>
+										<b-alert variant='info' show v-show="show">{{message}}</b-alert>
+									</transition>
+								
+									<transition enter-active-class="animated bounce" leave-active-class="animated shake">
+										<div v-show="show">
+											<p>(usando a lib animate.css)</p>
+											<b-alert variant='info' show>{{message}}</b-alert>
+										</div>
+									</transition> -->
 	
 		<br>
 		<b-select v-model='animationType' class="mb-4 col-2">
@@ -55,13 +55,10 @@ export default {
 		}
 	},
 	methods: {
-		beforeEnter(el) {
-			console.log('beforeEnter');
-		},
-		enter(el, done) {
+		animation(el, done, isToAdd) {
 			let round = 1
 			const timer = setInterval(() => {
-				let newWidth = this.baseWidth + (round * 10)
+				let newWidth = isToAdd ? this.baseWidth + (round * 10) : this.baseWidth - (round * 10)
 				el.style.width = newWidth + 'px'
 				round++
 
@@ -71,7 +68,13 @@ export default {
 				}
 
 			}, 20);
-
+		},
+		beforeEnter(el) {
+			this.baseWidth = 0
+			el.style.width = this.baseWidth + 'px'
+		},
+		enter(el, done) {
+			this.animation(el, done, true)
 		},
 		afterEnter(el) {
 			console.log('afterEnter');
@@ -82,11 +85,12 @@ export default {
 		},
 
 		beforeLeave(el) {
-			console.log('beforeLeave');
+			this.baseWidth = 300
+			el.style.width = this.baseWidth + 'px'
+
 		},
 		leave(el, done) {
-			console.log('leave');
-			done()
+			this.animation(el, done, false)
 		},
 		afterLeave(el) {
 			console.log('afterLeave');
