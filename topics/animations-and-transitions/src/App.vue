@@ -47,6 +47,13 @@
 		<transition name='fade' mode='out-in'>
 			<component :is='SelectedComponent'> </component>
 		</transition>
+
+		<hr>
+		<b-button variant='secondary' @click="addStudent" class="mb-4">Add Student</b-button>
+		<b-list-group v-for='(student, i) in students' :key='student'>
+			<b-list-group-item @click="removeStudent(i)" >{{student}}</b-list-group-item>
+		</b-list-group>
+
 	</div>
 </template>
 
@@ -65,7 +72,8 @@ export default {
 			show2: true,
 			animationType: 'fade',
 			baseWidth: 0,
-			SelectedComponent: 'WarningAlert'
+			SelectedComponent: 'WarningAlert',
+			students:['Robert', 'July', 'Nicholas', 'Anne']
 		}
 	},
 	methods: {
@@ -82,6 +90,15 @@ export default {
 				}
 
 			}, 20);
+		},
+		addStudent(){
+			console.log('tst')
+			// generate an aleatory string.
+			const s = Math.random().toString(36).substring(2)
+			this.students.push(s)
+		},
+		removeStudent(i){
+			this.students.splice(i, 1)
 		},
 		beforeEnter(el) {
 			this.baseWidth = 0
