@@ -4,28 +4,28 @@
 	
 		<!-- ANIMATION WITH JAVASCRIPT-->
 		<!-- <hr>
-								<button @click="show2 = !show2">Switch</button>
-								<transition @before-enter='beforeEnter' @enter='enter' @after-enter='afterEnter' @enter-cancelled='enterCancelled' @before-leave='beforeLeave' @leave='leave' @after-leave='afterLeave' @leave-cancelled='leaveCancelled'>
-									<div class="box" v-if='show2'>
-							
+									<button @click="show2 = !show2">Switch</button>
+									<transition @before-enter='beforeEnter' @enter='enter' @after-enter='afterEnter' @enter-cancelled='enterCancelled' @before-leave='beforeLeave' @leave='leave' @after-leave='afterLeave' @leave-cancelled='leaveCancelled'>
+										<div class="box" v-if='show2'>
+								
+										</div>
+									</transition>
+									<hr>
+									<div class="mb-4">
+										<b-button variant='primary' @click="SelectedComponent = 'WarningAlert' " class="mr-2">Warning</b-button>
+										<b-button variant='secondary' @click="SelectedComponent = 'WarningInfo' " >Info</b-button>
 									</div>
-								</transition>
-								<hr>
-								<div class="mb-4">
-									<b-button variant='primary' @click="SelectedComponent = 'WarningAlert' " class="mr-2">Warning</b-button>
-									<b-button variant='secondary' @click="SelectedComponent = 'WarningInfo' " >Info</b-button>
-								</div>
-								<transition name='fade' mode='out-in'>
-									<component :is='SelectedComponent'> </component>
-								</transition> -->
+									<transition name='fade' mode='out-in'>
+										<component :is='SelectedComponent'> </component>
+									</transition> -->
 	
 		<!-- <hr>
-								<b-button variant='secondary' @click="addStudent" class="mb-4">Add Student</b-button>
-								<transition-group name='slide' tag='div'>
-									<b-list-group v-for='(student, i) in students' :key='student'>
-										<b-list-group-item @click="removeStudent(i)" >{{student}}</b-list-group-item>
-									</b-list-group>
-								</transition-group> -->
+									<b-button variant='secondary' @click="addStudent" class="mb-4">Add Student</b-button>
+									<transition-group name='slide' tag='div'>
+										<b-list-group v-for='(student, i) in students' :key='student'>
+											<b-list-group-item @click="removeStudent(i)" >{{student}}</b-list-group-item>
+										</b-list-group>
+									</transition-group> -->
 	
 	
 		<p>with CSS</p>
@@ -76,6 +76,9 @@ export default {
 			examplesJS: [{
 				name: 'Example3',
 				desc: 'Animation with "fade" and "slide" effects'
+			}, {
+				name: 'Example4',
+				desc: 'Handle animations with 2 components'
 			}],
 
 
