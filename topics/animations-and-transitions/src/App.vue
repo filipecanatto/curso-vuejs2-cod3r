@@ -1,36 +1,7 @@
 <template>
 	<div id="app" class="container">
 		<h1>Animações</h1>
-		<hr>
-		<!-- <b-button variant='primary' class="mb-4" @click="show = !show">Show Message</b-button> -->
-	
-		<!-- ANIMATION WITH CSS -->
-		<!-- <transition name='fade' appear>
-										<b-alert variant='info' show v-show="show">{{message}}</b-alert>
-									</transition>
-								
-									<transition name='slide' type="animation" appear>
-										<b-alert variant='info' show v-show="show">{{message}}</b-alert>
-									</transition>
-								
-									<transition enter-active-class="animated bounce" leave-active-class="animated shake">
-										<div v-show="show">
-											<p>(usando a lib animate.css)</p>
-											<b-alert variant='info' show>{{message}}</b-alert>
-										</div>
-									</transition> -->
-	
-		<!-- <br>
-		<b-select v-model='animationType' class="mb-4 col-2">
-			<option value="fade">Fade</option>
-			<option value="slide">Slide</option>
-		</b-select>
-	
-		<transition :name='animationType' mode="out-in">
-			<b-alert variant='info' key="info" show v-if="show">{{message}}</b-alert>
-			<b-alert variant='warning' key="warn" show v-else>{{message}}</b-alert>
-		</transition>
-		<br> -->
+		
 		<!-- ANIMATION WITH JAVASCRIPT-->
 		<!-- <hr>
 		<button @click="show2 = !show2">Switch</button>
@@ -48,13 +19,20 @@
 			<component :is='SelectedComponent'> </component>
 		</transition> -->
 
-		<hr>
+		<!-- <hr>
 		<b-button variant='secondary' @click="addStudent" class="mb-4">Add Student</b-button>
 		<transition-group name='slide' tag='div'>
 			<b-list-group v-for='(student, i) in students' :key='student'>
 				<b-list-group-item @click="removeStudent(i)" >{{student}}</b-list-group-item>
 			</b-list-group>
-		</transition-group>
+		</transition-group> -->
+
+
+		<b-list-group>
+			<b-list-group-item  v-for='example in examples' :key='example'>
+				<v-link :href='example'>{{example}}</v-link>
+			</b-list-group-item>
+		</b-list-group>
 
 	</div>
 </template>
@@ -62,10 +40,12 @@
 <script>
 import WarningAlert from './WarningAlert'
 import WarningInfo from './WarningInfo'
+import VLink from './VLink'
 export default {
 	components:{
 		WarningAlert, 
-		WarningInfo
+		WarningInfo,
+		VLink
 	},
 	data() {
 		return {
@@ -75,7 +55,8 @@ export default {
 			animationType: 'fade',
 			baseWidth: 0,
 			SelectedComponent: 'WarningAlert',
-			students:['Robert', 'July', 'Nicholas', 'Anne']
+			students:['Robert', 'July', 'Nicholas', 'Anne'],
+			examples:['Example1', 'Example2']
 		}
 	},
 	methods: {
