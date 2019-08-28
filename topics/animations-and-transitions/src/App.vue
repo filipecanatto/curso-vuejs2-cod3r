@@ -1,39 +1,47 @@
 <template>
 	<div id="app" class="container">
 		<h1>Animações</h1>
-		
+	
 		<!-- ANIMATION WITH JAVASCRIPT-->
 		<!-- <hr>
-		<button @click="show2 = !show2">Switch</button>
-		<transition @before-enter='beforeEnter' @enter='enter' @after-enter='afterEnter' @enter-cancelled='enterCancelled' @before-leave='beforeLeave' @leave='leave' @after-leave='afterLeave' @leave-cancelled='leaveCancelled'>
-			<div class="box" v-if='show2'>
+								<button @click="show2 = !show2">Switch</button>
+								<transition @before-enter='beforeEnter' @enter='enter' @after-enter='afterEnter' @enter-cancelled='enterCancelled' @before-leave='beforeLeave' @leave='leave' @after-leave='afterLeave' @leave-cancelled='leaveCancelled'>
+									<div class="box" v-if='show2'>
+							
+									</div>
+								</transition>
+								<hr>
+								<div class="mb-4">
+									<b-button variant='primary' @click="SelectedComponent = 'WarningAlert' " class="mr-2">Warning</b-button>
+									<b-button variant='secondary' @click="SelectedComponent = 'WarningInfo' " >Info</b-button>
+								</div>
+								<transition name='fade' mode='out-in'>
+									<component :is='SelectedComponent'> </component>
+								</transition> -->
 	
-			</div>
-		</transition>
-		<hr>
-		<div class="mb-4">
-			<b-button variant='primary' @click="SelectedComponent = 'WarningAlert' " class="mr-2">Warning</b-button>
-			<b-button variant='secondary' @click="SelectedComponent = 'WarningInfo' " >Info</b-button>
-		</div>
-		<transition name='fade' mode='out-in'>
-			<component :is='SelectedComponent'> </component>
-		</transition> -->
-
 		<!-- <hr>
-		<b-button variant='secondary' @click="addStudent" class="mb-4">Add Student</b-button>
-		<transition-group name='slide' tag='div'>
-			<b-list-group v-for='(student, i) in students' :key='student'>
-				<b-list-group-item @click="removeStudent(i)" >{{student}}</b-list-group-item>
-			</b-list-group>
-		</transition-group> -->
-
-
+								<b-button variant='secondary' @click="addStudent" class="mb-4">Add Student</b-button>
+								<transition-group name='slide' tag='div'>
+									<b-list-group v-for='(student, i) in students' :key='student'>
+										<b-list-group-item @click="removeStudent(i)" >{{student}}</b-list-group-item>
+									</b-list-group>
+								</transition-group> -->
+	
+	
+		<p>with CSS</p>
 		<b-list-group>
-			<b-list-group-item  v-for='example in examples' :key='example'>
-				<v-link :href='example'>{{example}}</v-link>
+			<b-list-group-item v-for='example in examplesCSS' :key='example.name'>
+				<v-link :href='example.name'>{{example.desc}}</v-link>
 			</b-list-group-item>
 		</b-list-group>
-
+	
+		<p>with JS</p>
+		<b-list-group>
+			<b-list-group-item v-for='example in examplesJS' :key='example.name'>
+				<v-link :href='example.name'>{{example.desc}}</v-link>
+			</b-list-group-item>
+		</b-list-group>
+	
 	</div>
 </template>
 
@@ -42,8 +50,8 @@ import WarningAlert from './WarningAlert'
 import WarningInfo from './WarningInfo'
 import VLink from './VLink'
 export default {
-	components:{
-		WarningAlert, 
+	components: {
+		WarningAlert,
 		WarningInfo,
 		VLink
 	},
@@ -55,8 +63,22 @@ export default {
 			animationType: 'fade',
 			baseWidth: 0,
 			SelectedComponent: 'WarningAlert',
-			students:['Robert', 'July', 'Nicholas', 'Anne'],
-			examples:['Example1', 'Example2']
+			students: ['Robert', 'July', 'Nicholas', 'Anne'],
+			examplesCSS: [{
+					name: 'Example1',
+					desc: 'Animation with "fade" and "slide" effects'
+				},
+				{
+					name: 'Example2',
+					desc: 'Animation with animation.css library'
+				}
+			],
+			examplesJS: [{
+				name: 'Example3',
+				desc: 'Animation with "fade" and "slide" effects'
+			}],
+
+
 		}
 	},
 	methods: {
@@ -74,13 +96,13 @@ export default {
 
 			}, 20);
 		},
-		addStudent(){
+		addStudent() {
 			console.log('tst')
 			// generate an aleatory string.
 			const s = Math.random().toString(36).substring(2)
 			this.students.push(s)
 		},
-		removeStudent(i){
+		removeStudent(i) {
 			this.students.splice(i, 1)
 		},
 		beforeEnter(el) {
@@ -184,7 +206,7 @@ export default {
 	opacity: 0
 }
 
-.slide-move{
+.slide-move {
 	transition: transform 1s
 }
 </style>

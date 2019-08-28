@@ -1,8 +1,15 @@
 <template>
     <div>
-        <b-button @click="show2 = !show2">Switch</b-button>
-        <transition @before-enter='beforeEnter' @enter='enter' @after-enter='afterEnter' @enter-cancelled='enterCancelled' @before-leave='beforeLeave' @leave='leave' @after-leave='afterLeave' @leave-cancelled='leaveCancelled'>
-            <div class="box" v-if='show2'></div>
+        <b-button @click="show = !show">Switch</b-button>
+        <transition @before-enter='beforeEnter' 
+        @enter='enter' 
+        @after-enter='afterEnter' 
+        @enter-cancelled='enterCancelled' 
+        @before-leave='beforeLeave' 
+        @leave='leave' 
+        @after-leave='afterLeave' 
+        @leave-cancelled='leaveCancelled'>
+            <div class="box" v-if='show'></div>
         </transition>
     
     </div>
@@ -10,7 +17,31 @@
 
 <script>
 export default {
+    data(){
+        return {
+            show:false,
+
+        }
+    },
     methods: {
+        animation(el, done, isToAdd) {
+			let round = 1
+			const timer = setInterval(() => {
+				let newWidth = isToAdd ? this.baseWidth + (round * 10) : this.baseWidth - (round * 10)
+				el.style.width = newWidth + 'px'
+				round++
+
+				if (round > 30) {
+					clearInterval(timer)
+					done()
+				}
+
+			}, 20);
+		},
+        beforeEnter(el) {
+			this.baseWidth = 0
+			el.style.width = this.baseWidth + 'px'
+		},
         enter(el, done) {
             this.animation(el, done, true)
         },
