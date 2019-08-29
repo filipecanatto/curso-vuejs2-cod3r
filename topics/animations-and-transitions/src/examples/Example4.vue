@@ -1,8 +1,8 @@
 <template>
-    <div>
-        <div class="mb-4">
-            <b-button variant='primary' @click="SelectedComponent = 'WarningAlert' " class="mr-2">Warning</b-button>
-            <b-button variant='secondary' @click="SelectedComponent = 'WarningInfo' ">Info</b-button>
+    <div class="container border mt-4">
+        <div class="mb-4 mt-4">
+            <b-button variant='warning' @click="SelectedComponent = 'WarningAlert' " class="mr-2">Warning</b-button>
+            <b-button variant='info' @click="SelectedComponent = 'WarningInfo' ">Info</b-button>
         </div>
         <transition name='fade' mode='out-in'>
             <component :is='SelectedComponent'> </component>

@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <b-button variant='primary' class="mb-4 mt-4" @click="show = !show">Execute</b-button>
+    <div class="container border mt-4">
+        <b-button variant='secondary' class="mb-4 mt-4" @click="show = !show">Animate</b-button>
         <transition name='fade' appear>
             <b-alert variant='info' show v-show="show">{{message}}</b-alert>
         </transition>

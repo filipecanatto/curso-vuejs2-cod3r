@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <b-button @click="show = !show">Switch</b-button>
+    <div class="container mt-4 border">
+        <b-button class="mt-4 mb-4" variant='secondary' @click="show = !show">Animate</b-button>
         <transition @before-enter='beforeEnter' 
         @enter='enter' 
         @after-enter='afterEnter' 

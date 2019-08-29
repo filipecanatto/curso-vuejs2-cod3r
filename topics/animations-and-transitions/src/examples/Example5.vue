@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <b-button variant='secondary' @click="addStudent" class="mb-4">Add Student</b-button>
+    <div class="mt-4 container">
+        <b-button variant='secondary' @click="addStudent" class="mb-4 mt-4">Add Student</b-button>
         <transition-group name='slide' tag='div'>
             <b-list-group v-for='(student, i) in students' :key='student'>
                 <b-list-group-item @click="removeStudent(i)">{{student}}</b-list-group-item>
