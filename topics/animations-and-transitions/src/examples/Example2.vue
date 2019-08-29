@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container border mt-4">
         <b-button variant='primary' class="mb-4 mt-4" @click="show = !show">Animate</b-button>
         <transition enter-active-class="animated bounce" leave-active-class="animated shake">
             <div v-show="show">

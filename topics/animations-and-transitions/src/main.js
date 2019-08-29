@@ -13,6 +13,8 @@ const app = new Vue({
 	},
 	computed: {
 	  ViewComponent() {
+		console.log(this.currentRoute)
+		console.log('changing route to '+routes[this.currentRoute])
 		const matchingView = routes[this.currentRoute]
 		return matchingView  
 		  ? require('./examples/'+matchingView+ '.vue').default
@@ -20,7 +22,6 @@ const app = new Vue({
 	  }
 	},
 	render(h) {
-		console.log(this.ViewComponent)
 	  return h(this.ViewComponent)
 	}
   })

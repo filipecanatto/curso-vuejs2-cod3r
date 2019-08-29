@@ -27,23 +27,23 @@ export default {
 	data() {
 		return {
 			examplesCSS: [{
-					name: 'Example1',
+					name: '/Example1',
 					desc: 'Animation with "fade" and "slide" effects'
 				},
 				{
-					name: 'Example2',
+					name: '/Example2',
 					desc: 'Animation with animation.css library'
 				}
 			],
 			examplesJS: [{
-					name: 'Example3',
+					name: '/Example3',
 					desc: 'Div animation'
 				}, {
-					name: 'Example4',
+					name: '/Example4',
 					desc: 'Handle animations with 2 components'
 				},
 				{
-					name: 'Example5',
+					name: '/Example5',
 					desc: 'List animation'
 				}
 			],
