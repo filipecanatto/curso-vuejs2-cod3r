@@ -1,8 +1,6 @@
 <template>
     <div class="container border mt-4">
-		<br>
-		<v-link href='/'>Return</v-link>
-		<br>
+		
         <b-button variant='secondary' class="mb-4 mt-4" @click="show = !show">Animate</b-button>
         <transition name='fade' appear>
             <b-alert variant='info' show v-show="show">{{message}}</b-alert>
@@ -15,11 +13,9 @@
 </template>
 
 <script>
-import VLink from '../VLink'
+
 export default {
-	components:{
-		VLink
-	},
+	
     data(){
         return {
             show:false,
