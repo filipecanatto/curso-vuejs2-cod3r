@@ -33,12 +33,8 @@ export default {
 				{
 					name: '/Example2',
 					desc: 'Animation with animation.css library'
-				}
-			],
-			examplesJS: [{
-					name: '/Example3',
-					desc: 'Div animation'
-				}, {
+				},
+				{
 					name: '/Example4',
 					desc: 'Handle animations with 2 components'
 				},
@@ -47,8 +43,11 @@ export default {
 					desc: 'List animation'
 				}
 			],
-
-
+			examplesJS: [{
+					name: '/Example3',
+					desc: 'Accordion animation'
+				}	
+			],
 		}
 	}
 }
