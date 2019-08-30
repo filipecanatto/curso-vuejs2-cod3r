@@ -15,7 +15,7 @@ export default {
     props: ['question'],
     methods: {
         getAnswer(el) {
-            return el.correct
+            this.$emit('hasAnswered', el.correct)
         }
     }
 }

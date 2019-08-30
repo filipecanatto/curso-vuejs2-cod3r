@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
 		<h1>Super Quiz</h1>
-		<Answer v-if='showResult'></Answer>
-		<Question v-else :question='this.questions[currentIndex]'> </Question>
+		<Answer :result='result' v-if='showResult'></Answer>
+		<Question v-else :question='this.questions[currentIndex]' @hasAnswered='this.getAnswer'> </Question>
 	</div>
 </template>
 
@@ -38,8 +38,16 @@ export default {
 			],
 			currentIndex: 0,
 			showResult: false,
+			result: false
 		}
 	},
+	methods:{
+		getAnswer(result){
+			console.log('answer got.')
+			this.result = result
+			this.showResult = true
+		}
+	}
 
 }
 </script>
