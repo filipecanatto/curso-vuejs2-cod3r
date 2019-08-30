@@ -1,15 +1,18 @@
 <template>
 	<div id="app">
 		<h1>Super Quiz</h1>
-		<Question :question='this.questions[currentIndex]'> </Question>
+		<Answer v-if='showResult'></Answer>
+		<Question v-else :question='this.questions[currentIndex]'> </Question>
 	</div>
 </template>
 
 <script>
 import Question from './components/Question'
+import Answer from './components/Result'
 export default {
 	components: {
-		Question
+		Question,
+		Answer
 	},
 	data() {
 		return {
@@ -33,9 +36,10 @@ export default {
 				},
 
 			],
-			currentIndex: 0
+			currentIndex: 0,
+			showResult: false,
 		}
-	}
+	},
 
 }
 </script>

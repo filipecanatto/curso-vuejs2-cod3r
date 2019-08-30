@@ -2,7 +2,7 @@
     <div class="question">
         <h1>{{question.text}}</h1>
         <ul class="answers">
-            <li v-for='(a,i) in question.answers' :key=i>
+            <li @click='getAnswer(a)' v-for='(a,i) in question.answers' :key=i>
                 <div class="number">{{i+1}}</div>
                 <div class="text">{{a.text}}</div>
             </li>
@@ -12,7 +12,12 @@
 
 <script>
 export default {
-    props: ['question']
+    props: ['question'],
+    methods: {
+        getAnswer(el) {
+            return el.correct
+        }
+    }
 }
 </script>
 
