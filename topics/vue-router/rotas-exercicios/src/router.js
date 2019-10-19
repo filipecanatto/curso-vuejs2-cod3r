@@ -7,14 +7,15 @@ Vue.use(Router)
 
 export default new Router(
     {
-        mode:'hash',
+        mode: 'hash',
         routes: [
             {
                 path: '/',
                 component: Inicio
             }, {
                 path: '/usuario/:id',
-                component: Usuario
+                component: Usuario,
+                props: true
             }
         ]
     }
