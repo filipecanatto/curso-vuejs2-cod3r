@@ -9,17 +9,18 @@
 <script>
 import Menu from './components/template/Menu'
 export default {
-	components:{
+	components: {
 		Menu
-	}
+	},
 	
+
 }
 </script>
 
 <style>
-	#app {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
+#app {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 </style>
