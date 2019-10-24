@@ -1,7 +1,9 @@
 <template>
     <div class="usuario-editar">
         <h3>Usuário Editar</h3>
-        <p><strong>Código: {{id}}</strong></p>
+        <p><strong>Código: {{id}} / {{ $route.params.id }}</strong></p>
+        <p><strong>Completo: </strong> {{ $route.query.completo ? 'Sim' : 'Não' }} </p>
+        <p> <strong>Linha :</strong> {{$route.query.lingua}} </p>
     </div>
 </template>
 

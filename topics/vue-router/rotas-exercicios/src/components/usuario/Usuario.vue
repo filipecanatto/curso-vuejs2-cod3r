@@ -12,7 +12,7 @@ export default {
   
     methods: {
         irParaInicio() {
-            this.$route.params.push({name:'inicio'})
+            this.$router.push({name:'inicio'})
             // or this.$router.push('/')
             // or this.$router.push({ path: '/' })
         }
