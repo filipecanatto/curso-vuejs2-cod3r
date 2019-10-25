@@ -4,6 +4,7 @@
         <p><strong>Código: {{id}} / {{ $route.params.id }}</strong></p>
         <p><strong>Completo: </strong> {{ $route.query.completo ? 'Sim' : 'Não' }} </p>
         <p> <strong>Linha :</strong> {{$route.query.lingua}} </p>
+        <button primario>Confirmar</button>
         <div id="rodape">
             <h3>Curso Vue</h3>
         </div>
