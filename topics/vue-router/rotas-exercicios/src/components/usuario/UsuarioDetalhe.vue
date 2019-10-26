@@ -19,7 +19,7 @@ export default {
       //  next(vm => {
       //      console.log(vm.id)
       //  })
-      const autenticado = false
+      const autenticado = true
       autenticado ? next() : next(false)
     }
     // data() {
