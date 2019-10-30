@@ -41,10 +41,17 @@ export default {
                 preco: this.preco
             }
             this.sequencia++
-            // this.$store.state.produtos.push(produto)
-            // this.$store.commit('adicionarProduto', produto)
-            //this.adicionarProduto(produto)
-            this.$store.dispatch('adicionarProduto', produto)
+            /*  - sem usar mutations
+                this.$store.state.produtos.push(produto) 
+            */
+            /* - usando mutations
+                this.$store.commit('adicionarProduto', produto) 
+            */
+            /* - chamando uma action ma mao
+                this.$store.dispatch('adicionarProduto', produto) 
+            */
+            // mapeando uma action
+            this.adicionarProduto(produto)
             console.log(this.$store.getters.getNome)
             console.log(this.$store.getters.getNomeCompleto)
         }
