@@ -17,9 +17,18 @@ import { mapActions } from 'vuex'
 export default {
     data() {
         return {
-            sequencia: 1,
-            quantidade: 1,
-            preco: 9.99,
+            sequencia: 1
+        }
+    },
+    computed: {
+        quantidade(){
+            return this.$store.state.quantidade
+        },
+        // um jeito diferente de fazer, usando get
+        preco:{
+            get(){
+                return this.$store.state.preco
+            }
         }
     },
     methods: {
