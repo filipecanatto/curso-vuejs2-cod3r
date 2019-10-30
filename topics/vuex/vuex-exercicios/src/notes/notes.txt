@@ -1,0 +1,2 @@
+- mutations servem para fazer uma alteracao de estado na store, apenas isso, simples assim, fazem uma alteracao de estado.
+- uma action é um intermediario entre a mutation e a store, são usadas para processarem regras antes da mudança de estado efetivamente acontecer.
