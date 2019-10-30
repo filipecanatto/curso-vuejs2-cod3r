@@ -22,12 +22,12 @@ export default {
     },
     computed: {
         quantidade(){
-            return this.$store.state.quantidade
+            return this.$store.state.parametros.quantidade
         },
         // um jeito diferente de fazer, usando get
         preco:{
             get(){
-                return this.$store.state.preco
+                return this.$store.state.parametros.preco
             }
         }
     },
